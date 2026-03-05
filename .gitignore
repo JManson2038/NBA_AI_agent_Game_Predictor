@@ -1,0 +1,44 @@
+# ── API Keys & Secrets ──────────────────────────────────────────
+config.py
+.env
+*.env
+secrets.py
+
+# ── Cache & Data ─────────────────────────────────────────────────
+cache/
+*.parquet
+*.json
+!injuries.json
+
+# ── Trained Models ───────────────────────────────────────────────
+models/
+*.pkl
+*.pt
+
+# ── Prediction Logs ──────────────────────────────────────────────
+predictions_log.json
+cache/odds_log.json
+cache/roster_sync.log
+
+# ── Python ───────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# ── macOS ─────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── IDE ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo

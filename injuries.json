@@ -1,0 +1,171 @@
+{
+  "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
+  "_last_updated": "2026-03-05 11:16",
+  "ATL": {
+    "Jonathan Kuminga": "questionable"
+  },
+  "BOS": {
+    "Jayson Tatum": "out"
+  },
+  "BKN": {
+    "Egor Demin": "out"
+  },
+  "CHA": {
+    "Grant Williams": "questionable",
+    "Tidjane Salaun": "out"
+  },
+  "CHI": {
+    "Patrick Williams": "out",
+    "Jalen Smith": "out",
+    "Matas Buzelis": "questionable",
+    "Josh Giddey": "questionable",
+    "Jaden Ivey": "out",
+    "Anfernee Simons": "out",
+    "Zach Collins": "out",
+    "Noa Essengue": "out"
+  },
+  "CLE": {
+    "Jarrett Allen": "questionable",
+    "Dean Wade": "out",
+    "Max Strus": "out",
+    "Donovan Mitchell": "out"
+  },
+  "DAL": {
+    "Klay Thompson": "questionable",
+    "Brandon Williams": "questionable",
+    "Naji Marshall": "questionable",
+    "Cooper Flagg": "out",
+    "Kyrie Irving": "out",
+    "Dereck Lively II": "out"
+  },
+  "DEN": {
+    "Spencer Jones": "out",
+    "Cameron Johnson": "questionable",
+    "Aaron Gordon": "out",
+    "Peyton Watson": "out"
+  },
+  "DET": {},
+  "GSW": {
+    "Seth Curry": "out",
+    "Kristaps Porzingis": "out",
+    "Gary Payton II": "questionable",
+    "Will Richard": "out",
+    "Moses Moody": "out",
+    "Stephen Curry": "out",
+    "L.J. Cryer": "out",
+    "Jimmy Butler III": "out"
+  },
+  "HOU": {
+    "Amen Thompson": "questionable",
+    "Jabari Smith Jr.": "out",
+    "Alperen Sengun": "questionable",
+    "Steven Adams": "out",
+    "Fred VanVleet": "out"
+  },
+  "IND": {
+    "Ivica Zubac": "out",
+    "Johnny Furphy": "out",
+    "Tyrese Haliburton": "out"
+  },
+  "LAC": {
+    "Yanic Konan Niederhauser": "out",
+    "John Collins": "out",
+    "Sean Pedulla": "questionable",
+    "Bradley Beal": "out"
+  },
+  "LAL": {
+    "Maxi Kleber": "questionable"
+  },
+  "MEM": {
+    "Scotty Pippen Jr.": "out",
+    "Ty Jerome": "out",
+    "Taylor Hendricks": "out",
+    "Cedric Coward": "out",
+    "Santi Aldama": "out",
+    "Zach Edey": "out",
+    "Brandon Clarke": "out",
+    "Kentavious Caldwell-Pope": "out",
+    "Ja Morant": "out"
+  },
+  "MIA": {
+    "Simone Fontecchio": "out",
+    "Nikola Jovic": "out",
+    "Norman Powell": "out",
+    "Terry Rozier": "out"
+  },
+  "MIL": {
+    "Kevin Porter Jr.": "out",
+    "Taurean Prince": "out"
+  },
+  "MIN": {
+    "Joe Ingles": "out"
+  },
+  "NOP": {
+    "Zion Williamson": "questionable",
+    "Trey Murphy III": "questionable"
+  },
+  "NYK": {
+    "Mitchell Robinson": "out",
+    "Miles McBride": "out"
+  },
+  "OKC": {
+    "Alex Caruso": "questionable",
+    "Branden Carlson": "out",
+    "Ajay Mitchell": "out",
+    "Jalen Williams": "out",
+    "Thomas Sorber": "out"
+  },
+  "ORL": {
+    "Jonathan Isaac": "questionable",
+    "Anthony Black": "questionable",
+    "Wendell Carter Jr.": "questionable",
+    "Franz Wagner": "out"
+  },
+  "PHI": {
+    "Kelly Oubre Jr.": "out",
+    "VJ Edgecombe": "questionable",
+    "Johni Broome": "out",
+    "Joel Embiid": "out"
+  },
+  "PHX": {
+    "Jordan Goodwin": "out",
+    "Dillon Brooks": "out"
+  },
+  "POR": {
+    "Kris Murray": "questionable",
+    "Deni Avdija": "out",
+    "Shaedon Sharpe": "out",
+    "Damian Lillard": "out"
+  },
+  "SAC": {
+    "Keegan Murray": "out",
+    "Dylan Cardwell": "out",
+    "Domantas Sabonis": "out",
+    "Zach LaVine": "out"
+  },
+  "SAS": {
+    "Harrison Barnes": "out",
+    "David Jones Garcia": "out"
+  },
+  "TOR": {
+    "Collin Murray-Boyles": "out",
+    "Brandon Ingram": "questionable",
+    "Chucky Hepburn": "out"
+  },
+  "UTA": {
+    "Lauri Markkanen": "out",
+    "Vince Williams Jr.": "out",
+    "Jusuf Nurkic": "out",
+    "Jaren Jackson Jr.": "out",
+    "Walker Kessler": "out"
+  },
+  "WAS": {
+    "Kyshawn George": "out",
+    "Jamir Watkins": "out",
+    "Tristan Vukcevic": "out",
+    "Anthony Gill": "questionable",
+    "Alex Sarr": "out",
+    "Anthony Davis": "out",
+    "Cam Whitmore": "out"
+  }
+}
