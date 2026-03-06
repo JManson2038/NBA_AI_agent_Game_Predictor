@@ -1,12 +1,11 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-03-06 13:19",
+  "_last_updated": "2026-03-06 14:17",
   "ATL": {
     "Jonathan Kuminga": "questionable"
   },
   "BOS": {
-    "Jordan Walsh": "questionable",
-    "Jayson Tatum": "out"
+    "Jordan Walsh": "questionable"
   },
   "BKN": {
     "Egor Demin": "out"
@@ -31,7 +30,9 @@
     "Donovan Mitchell": "out"
   },
   "DAL": {
-    "Brandon Williams": "out",
+    "Klay Thompson": "questionable",
+    "Daniel Gafford": "questionable",
+    "Brandon Williams": "questionable",
     "Kyrie Irving": "out",
     "Dereck Lively II": "out"
   },
@@ -55,7 +56,8 @@
     "Jimmy Butler III": "out"
   },
   "HOU": {
-    "Dorian Finney-Smith": "questionable",
+    "Jabari Smith Jr.": "questionable",
+    "Amen Thompson": "questionable",
     "Steven Adams": "out",
     "Fred VanVleet": "out"
   },

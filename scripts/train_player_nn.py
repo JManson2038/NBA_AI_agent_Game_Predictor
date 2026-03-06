@@ -1,12 +1,6 @@
 """
 train_player_nn.py
 Train the PlayerValueNN and print ranked player tiers for all 30 teams.
-
-Usage:
-    python train_player_nn.py               # train + show all 30 teams
-    python train_player_nn.py --force       # force fresh API fetch
-    python train_player_nn.py --team BOS    # show one specific team
-    python train_player_nn.py --tier Star   # show all players of one tier
 """
 import sys
 from pathlib import Path

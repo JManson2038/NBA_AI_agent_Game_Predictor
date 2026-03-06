@@ -41,7 +41,7 @@ class InjuryAgent:
     No manual tagging. No flat universal penalties.
     """
 
-    def __init__(self, season="2024-25"):
+    def __init__(self, season="2025-26"):
         self.season = season
         self.injuries = self._load_injury_file()
         self._player_cache = {}
