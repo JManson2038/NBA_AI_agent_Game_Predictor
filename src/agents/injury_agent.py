@@ -115,7 +115,7 @@ class InjuryAgent:
         so display and penalty tiers are always in sync.
         """
         try:
-            from player_value_nn import PlayerValueNN, generate_importance_label
+            from src.models.player_value_nn import PlayerValueNN, generate_importance_label
             if not hasattr(self, '_nn'):
                 self._nn = PlayerValueNN()
                 if not self._nn.load():

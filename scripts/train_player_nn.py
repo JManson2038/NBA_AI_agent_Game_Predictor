@@ -8,6 +8,9 @@ Usage:
     python train_player_nn.py --team BOS    # show one specific team
     python train_player_nn.py --tier Star   # show all players of one tier
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import argparse
 import json

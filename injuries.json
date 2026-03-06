@@ -1,6 +1,6 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-03-05 19:58",
+  "_last_updated": "2026-03-05 20:11",
   "ATL": {
     "Jonathan Kuminga": "questionable"
   },
@@ -16,8 +16,8 @@
   "CHI": {
     "Patrick Williams": "out",
     "Jalen Smith": "out",
-    "Matas Buzelis": "questionable",
-    "Josh Giddey": "questionable",
+    "Matas Buzelis": "out",
+    "Josh Giddey": "out",
     "Jaden Ivey": "out",
     "Anfernee Simons": "out",
     "Zach Collins": "out",
@@ -52,7 +52,6 @@
   },
   "HOU": {
     "Dorian Finney-Smith": "out",
-    "Jabari Smith Jr.": "out",
     "Steven Adams": "out",
     "Fred VanVleet": "out"
   },
@@ -72,6 +71,7 @@
     "Maxi Kleber": "questionable"
   },
   "MEM": {
+    "Ja Morant": "out",
     "Scotty Pippen Jr.": "out",
     "Ty Jerome": "out",
     "Taylor Hendricks": "out",
@@ -79,8 +79,7 @@
     "Santi Aldama": "out",
     "Zach Edey": "out",
     "Brandon Clarke": "out",
-    "Kentavious Caldwell-Pope": "out",
-    "Ja Morant": "out"
+    "Kentavious Caldwell-Pope": "out"
   },
   "MIA": {
     "Simone Fontecchio": "out",
@@ -143,7 +142,6 @@
   },
   "TOR": {
     "Collin Murray-Boyles": "out",
-    "Brandon Ingram": "questionable",
     "Chucky Hepburn": "out"
   },
   "UTA": {

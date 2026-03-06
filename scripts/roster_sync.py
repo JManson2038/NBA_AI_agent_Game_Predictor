@@ -10,6 +10,9 @@ Usage:
     python roster_sync.py --check      # just check if cache is stale
     python roster_sync.py --trades     # only show detected trades
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import json
 import time

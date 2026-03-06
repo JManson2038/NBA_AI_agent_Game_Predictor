@@ -16,6 +16,9 @@ Usage:
     python clv_tracker.py --summary        # show CLV analysis
     python clv_tracker.py --date 2026-03-03  # CLV for a specific date
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import json
 import os

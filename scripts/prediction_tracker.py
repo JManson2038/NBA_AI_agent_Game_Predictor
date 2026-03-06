@@ -10,6 +10,9 @@ Usage:
     python prediction_tracker.py --summary            # show ROI and accuracy
     python prediction_tracker.py --pending            # show unresolved predictions
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import argparse
 import json

@@ -8,6 +8,9 @@ Usage:
     python injury_updater.py          # update injuries.json now
     python injury_updater.py --show   # show current injuries without saving
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import json
 import re
