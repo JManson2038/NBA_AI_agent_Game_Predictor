@@ -1,11 +1,12 @@
 import numpy as np
 import pandas as pd
-from team_strength_agent import TeamStrengthAgent
-from matchup_agent import MatchupAgent
-from prediction_agent import PredictionAgent
-from confidence_agent import ConfidenceAgent
-from injury_agent import InjuryAgent
+from src.agents.team_strength_agent import TeamStrengthAgent
+from src.agents.matchup_agent import MatchupAgent
+from src.agents.prediction_agent import PredictionAgent
+from src.agents.confidence_agent import ConfidenceAgent
+from src.agents.injury_agent import InjuryAgent
 import config
+
 
 class Orchestrator:
     def __init__(self, strength_agent=None):

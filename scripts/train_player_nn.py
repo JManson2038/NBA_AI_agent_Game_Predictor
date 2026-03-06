@@ -12,7 +12,7 @@ Usage:
 import argparse
 import json
 from pathlib import Path
-from player_value_nn import PlayerValueNN, PlayerDataCollector
+from src.models.player_value_nn import PlayerValueNN, PlayerDataCollector
 
 ALL_TEAMS = [
     "ATL", "BOS", "BKN", "CHA", "CHI",

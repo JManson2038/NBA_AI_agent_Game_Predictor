@@ -1,15 +1,3 @@
-"""
-schedule.py — Auto-fetch today's NBA schedule and log predictions
-
-Pulls today's games from nba_api, runs predictions for each,
-and saves them to predictions_log.json ready for result entry.
-
-Usage:
-    python schedule.py                  # predict all of today's games
-    python schedule.py --date 2026-03-04  # predict a specific date
-    python schedule.py --preview        # show today's games without predicting
-    python schedule.py --results        # prompt to enter results for pending games
-"""
 
 import argparse
 import time
@@ -19,6 +7,13 @@ from pathlib import Path
 
 from nba_api.stats.endpoints import ScoreboardV2
 from nba_api.stats.static import teams as nba_teams
+from src.agents.orchestrator import Orchestrator, format_prediction
+from src.agents.data_agent import DataAgent
+from src.agents.team_strength_agent import TeamStrengthAgent
+from src.agents.matchup_agent import MatchupAgent
+from src.agents.prediction_agent import PredictionAgent
+from scripts.injury_updater import update as update_injuries
+from scripts.clv_tracker import fetch_odds, parse_game_odds, store_opening_lines, get_api_key
 
 HEADERS = {
     'Host': 'stats.nba.com',

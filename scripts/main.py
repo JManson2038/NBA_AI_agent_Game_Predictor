@@ -2,13 +2,12 @@ import argparse
 import sys
 import pandas as pd
 from pathlib import Path
-
-from data_agent import DataAgent
-from team_strength_agent import TeamStrengthAgent
-from matchup_agent import MatchupAgent
-from prediction_agent import PredictionAgent
-from confidence_agent import ConfidenceAgent
-from orchestrator import Orchestrator, format_prediction
+from src.agents.data_agent import DataAgent
+from src.agents.team_strength_agent import TeamStrengthAgent
+from src.agents.matchup_agent import MatchupAgent
+from src.agents.prediction_agent import PredictionAgent
+from src.agents.confidence_agent import ConfidenceAgent
+from src.agents.orchestrator import Orchestrator, format_prediction
 import config
 
 

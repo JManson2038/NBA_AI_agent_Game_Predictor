@@ -1,11 +1,12 @@
 import argparse
 import pandas as pd
-from data_agent import DataAgent
-from team_strength_agent import TeamStrengthAgent
-from matchup_agent import MatchupAgent
-from prediction_agent import PredictionAgent
+from src.agents.data_agent import DataAgent
+from src.agents.team_strength_agent import TeamStrengthAgent
+from src.agents.matchup_agent import MatchupAgent
+from src.agents.prediction_agent import PredictionAgent
+from src.agents.orchestrator import Orchestrator
+from src.utils.evaluate import evaluate_predictions
 import config
-
 
 def train(force_fetch=False):
     print("=" * 60)

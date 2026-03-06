@@ -1,16 +1,11 @@
-""""
-injury_agent.py — Phase 3 Calibrated Injury System
-
-Tier system is imported from player_value_nn.py as the single
-source of truth. No duplicate tier definitions here.
-"""
 
 import json
 import numpy as np
 from pathlib import Path
 
-# ── Single source of truth for tiers and Elo ranges ──
-from player_value_nn import TIERS, TIER_ELO_RANGE, score_to_tier
+from src.models.player_value_nn import TIERS, TIER_ELO_RANGE, score_to_tier
+import config
+
 
 CACHE_DIR = Path("cache")
 INJURY_FILE = Path("injuries.json")
