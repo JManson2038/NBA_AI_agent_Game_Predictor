@@ -20,6 +20,9 @@ Usage:
     python backtest_injury.py --model C         # one model only
     python backtest_injury.py --min-edge 0.04   # only high-edge games
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import argparse
 import json
