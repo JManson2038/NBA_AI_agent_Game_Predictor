@@ -177,7 +177,6 @@ nba_game_predictor/
 ├── player_value_nn.py       # Neural network player importance
 ├── injury_updater.py        # Auto-scrape ESPN injuries
 ├── roster_sync.py           # Roster change detection
-├── clv_tracker.py           # Closing line value tracking
 ├── prediction_tracker.py    # Manual prediction logging
 ├── backtest_injury.py       # A/B/C model comparison
 ├── evaluate.py              # Evaluation metrics
@@ -204,17 +203,6 @@ joblib>=1.3
 tqdm>=4.65
 torch>=2.0
 ```
-
-## Configuration
-
-Copy `config.template.py` to `config.py` and set:
-
-```python
-ODDS_API_KEY = "your_key_here"   # from https://the-odds-api.com
-```
-
-All other settings have working defaults.
-
 ## Results (Live Tracking)
 
 | Date | Record | Units | ROI |

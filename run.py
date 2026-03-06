@@ -40,8 +40,7 @@ SCRIPTS = {
     "train":     ROOT / "scripts/train.py",
     "train-nn":  ROOT / "scripts/train_player_nn.py",
     "roster":    ROOT / "scripts/roster_sync.py",
-    "injuries":  ROOT / "scripts/injury_updater.py",
-    "clv":       ROOT / "scripts/clv_tracker.py",
+    "injuries":  ROOT / "scripts/injury_updater.py"
     "tracker":   ROOT / "scripts/prediction_tracker.py",
     "backtest":  ROOT / "scripts/backtest_injury.py",
 }

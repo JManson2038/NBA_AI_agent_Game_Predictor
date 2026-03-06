@@ -311,23 +311,6 @@ def auto_fill_results(game_date=None):
     if updated:
         save_log(log)
         print(f"\n  Updated {updated} result(s) in {LOG_FILE}")
-
-        # Auto-attach CLV
-        try:
-            from scripts.clv_tracker import (
-                fetch_odds, parse_game_odds,
-                store_opening_lines, attach_clv_to_log, get_api_key
-            )
-            api_key = get_api_key()
-            if api_key:
-                print(f"  Fetching closing lines for CLV...")
-                raw = fetch_odds(api_key, game_date)
-                if raw:
-                    games_odds = parse_game_odds(raw)
-                    store_opening_lines(game_date, games_odds)
-                    attach_clv_to_log(game_date)
-        except Exception as e:
-            print(f"  Could not attach CLV: {e}")
     else:
         print("  No matching pending predictions found.")
 
@@ -436,23 +419,6 @@ def main():
     print(f"  {'─'*58}")
     print(f"  Predicted: {predicted}  Skipped: {skipped}")
     print(f"  Saved to: {LOG_FILE}")
-
-    # Auto-fetch opening lines
-    try:
-        from scripts.clv_tracker import fetch_odds, parse_game_odds, store_opening_lines, get_api_key
-        api_key = get_api_key()
-        if api_key:
-            print(f"\n  Fetching opening lines...")
-            raw = fetch_odds(api_key, game_date)
-            if raw:
-                games_odds = parse_game_odds(raw)
-                store_opening_lines(game_date, games_odds)
-                print(f"  Opening lines stored for {len(games_odds)} games.")
-        else:
-            print(f"\n  No Odds API key — skipping opening lines.")
-    except Exception as e:
-        print(f"\n  Could not fetch opening lines: {e}")
-
     print(f"\n  Fill results tonight with:")
     print(f"  python run.py results")
     print(f"  {'='*58}\n")
