@@ -330,7 +330,7 @@ def main():
     game_date = datetime.strptime(args.date, "%Y-%m-%d").date() if args.date else date.today()
 
     print(f"\n  {'='*58}")
-    print(f"  NBA SCHEDULE — {game_date.strftime('%A, %B %-d, %Y')}")
+    print(f"  NBA SCHEDULE — {game_date.strftime('%A, %B %d, %Y').replace(' 0', ' ')}")
     print(f"  {'='*58}")
 
     if args.results:
