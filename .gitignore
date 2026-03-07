@@ -11,7 +11,7 @@ cache/
 !injuries.json
 
 # ── Trained Models ───────────────────────────────────────────────
-models/
+/models/
 *.pkl
 *.pt
 
