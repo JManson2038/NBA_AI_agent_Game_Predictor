@@ -66,8 +66,8 @@ def train(force_fetch=False):
     # ── Step 8: Quick test-set evaluation ──
     test_df = clean[clean["SEASON"] == config.TEST_SEASON]
     if len(test_df) > 0:
-        from evaluate import evaluate_predictions
-        from orchestrator import Orchestrator
+        from src.utils.evaluate import evaluate_predictions
+        from src.agents.orchestrator import Orchestrator
 
         orch = Orchestrator(strength_agent=strength_agent)
         orch.prediction_agent = prediction_agent
@@ -75,10 +75,6 @@ def train(force_fetch=False):
         evaluate_predictions(results)
     else:
         print("\n No test season data found for evaluation.")
-
-    print("\n Training complete! Run `python main.py` to predict games.")
-    return dataset, feature_cols, strength_agent, prediction_agent
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train NBA AI Predictor")
