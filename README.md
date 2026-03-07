@@ -1,215 +1,204 @@
 # NBA AI Agent Game Predictor
 
-A multi-agent machine learning system that predicts NBA game outcomes using Elo ratings, rolling team stats, matchup analysis, injury impact scoring, and a neural network for player importance weighting.
+A multi-agent machine learning system that predicts NBA game outcomes daily. Built with Elo ratings, rolling team statistics, matchup analysis, a neural network for player importance scoring, and automated injury tracking.
 
-## Architecture
+---
 
-```
-Data Agent → Team Strength Agent → Matchup Agent
-                    ↓
-          Prediction Model Agent (LR + XGBoost)
-                    ↓
-            Confidence Agent
-                    ↓
-          Injury Agent (PlayerValueNN)
-                    ↓
-              Orchestrator → Final Prediction
-```
-
-| Agent | Role |
-|-------|------|
-| **Data Agent** | Fetches game logs from `nba_api`, engineers rolling features |
-| **Team Strength Agent** | Maintains Elo ratings with margin-of-victory adjustments |
-| **Matchup Agent** | Detects pace, shooting, rebounding, and momentum mismatches |
-| **Prediction Agent** | Logistic Regression (baseline) + XGBoost (primary) ensemble |
-| **Confidence Agent** | Scores reliability via model agreement, Elo strength, volatility |
-| **Injury Agent** | Calibrated tiered Elo penalties based on PlayerValueNN scores |
-| **Orchestrator** | Combines all agents into a final prediction with explanation |
-
-## Features
-
-- **Auto schedule fetching** — pulls today's NBA games automatically
-- **Auto injury updates** — scrapes ESPN injury report before every prediction
-- **Auto result filling** — fetches final scores from NBA scoreboard each night
-- **Player value neural network** — rates every player Franchise / Star / Key Rotation / Bench / Two-Way
-- **Calibrated injury penalties** — tiered Elo adjustments based on player importance, not flat penalties
-- **Closing line value tracking** — measures model edge vs betting market (requires Odds API key)
-- **Roster sync** — detects trades and roster moves, auto-fixes injuries.json
-- **Prediction tracker** — logs every prediction with confidence tier and running ROI
-- **A/B/C model backtest** — compares no-injury vs fixed penalty vs calibrated injury models
-
-## Quickstart
-
-```bash
-# 1. Install dependencies
-pip install -r requirements.txt
-pip install torch
-
-# 2. Copy config template and add your settings
-cp config.template.py config.py
-
-# 3. Fetch data and train models (first run ~5 min)
-python train.py
-
-# 4. Train player value neural network
-python train_player_nn.py
-
-# 5. Sync rosters
-python roster_sync.py
-
-# 6. Run today's predictions
-python schedule.py
-```
-
-## Daily Workflow
-
-```bash
-# Morning — fetch schedule, update injuries, predict all games
-python schedule.py
-
-# Evening — auto-fill results from NBA scoreboard
-python schedule.py --results
-
-# Check running ROI
-python schedule.py --summary
-```
-
-## Sample Output
+## How It Works
 
 ```
-  DAL  @ CHA   Pick: DAL   65.7%  Spread: -2.6  Conf: Medium (0.68)  [INJ: -70H/-171A]
-  WAS  @ ORL   Pick: ORL   80.0%  Spread: +13.6  Conf: High (0.922)  [INJ: -71H/-0A]
-  OKC  @ CHI   Pick: OKC   58.1%  Spread: +0.4   Conf: Medium (0.658) [INJ: -122H/-106A]
+NBA API
+  └── Data Agent          fetches game logs, engineers rolling features
+        └── Team Strength Agent    builds Elo ratings (margin-of-victory adjusted)
+              └── Matchup Agent         detects pace, shooting, rebounding mismatches
+                    └── Prediction Agent      LR + XGBoost ensemble
+                          └── Confidence Agent      scores prediction reliability
+                                └── Injury Agent          calibrated Elo penalties via PlayerValueNN
+                                      └── Orchestrator          final prediction with explanation
 ```
 
-## Player Tiers
+---
 
-The PlayerValueNN scores every player on a 0-1 scale using box score stats and win impact metrics, then classifies them into tiers used for injury Elo penalties:
-
-| Tier | Score | Elo Penalty | Example |
-|------|-------|-------------|---------|
-| Franchise | 0.48+ | 90-120 | SGA, Luka, Tatum |
-| Star | 0.40-0.48 | 60-85 | Jaylen Brown, Bam |
-| Key Rotation | 0.28-0.40 | 30-55 | Jrue Holiday, Al Horford |
-| Bench | 0.14-0.28 | 10-25 | Role players |
-| Two-Way | 0.00-0.14 | 5-10 | Fringe roster |
-
-```bash
-# View player tiers
-python train_player_nn.py --team OKC
-python train_player_nn.py --tier Franchise
-python train_player_nn.py --tier Star
-```
-
-## Roster Management
-
-```bash
-# Sync all 30 rosters, detect trades, auto-fix injuries.json
-python roster_sync.py
-
-# Check one team
-python roster_sync.py --team LAL
-
-# Check if cache is stale
-python roster_sync.py --check
-```
-
-## Backtesting
-
-```bash
-# Compare all three injury models
-python backtest_injury.py
-
-# High edge games only
-python backtest_injury.py --min-edge 0.04
-
-# Specific season
-python backtest_injury.py --season 2023-24
-```
-
-## Closing Line Value (CLV)
-
-Measures whether the model finds edge vs the betting market.
-
-```bash
-# Requires free API key from https://the-odds-api.com
-# Add to config.py: ODDS_API_KEY = "your_key_here"
-
-python clv_tracker.py --fetch      # fetch opening lines
-python clv_tracker.py --close      # fetch closing lines
-python clv_tracker.py --summary    # show CLV analysis
-```
-
-## Manual Prediction
-
-```bash
-# Single game
-python main.py --home BOS --away LAL
-
-# Multiple games
-python main.py --games OKC:BOS LAL:GSW MIA:NYK
-
-# Interactive mode
-python main.py
-
-# Elo power rankings
-python main.py --rankings
-
-# Backtest a season
-python main.py --backtest 2024-25
-```
-
-## Project Structure
-
-```
-nba_game_predictor/
-├── main.py                  # CLI entry point
-├── schedule.py              # Auto-fetch schedule and predictions
-├── train.py                 # Training pipeline
-├── train_player_nn.py       # Player value NN training
-├── orchestrator.py          # Combines all agents
-├── data_agent.py            # NBA data fetching and feature engineering
-├── team_strength_agent.py   # Elo rating system
-├── matchup_agent.py         # Matchup feature detection
-├── prediction_agent.py      # LR + XGBoost ensemble
-├── confidence_agent.py      # Prediction reliability scoring
-├── injury_agent.py          # Calibrated injury Elo penalties
-├── player_value_nn.py       # Neural network player importance
-├── injury_updater.py        # Auto-scrape ESPN injuries
-├── roster_sync.py           # Roster change detection
-├── prediction_tracker.py    # Manual prediction logging
-├── backtest_injury.py       # A/B/C model comparison
-├── evaluate.py              # Evaluation metrics
-├── config.template.py       # Config template (copy to config.py)
-├── injuries.json            # Current injury statuses
-├── requirements.txt         # Dependencies
-├── cache/                   # Auto-generated data cache
-└── models/                  # Trained model files
-```
-
-## Tech Stack
-
-Python, pandas, scikit-learn, XGBoost, PyTorch, nba_api
-
-## Requirements
-
-```
-nba_api>=1.4
-pandas>=2.0
-numpy>=1.24
-scikit-learn>=1.3
-xgboost>=2.0
-joblib>=1.3
-tqdm>=4.65
-torch>=2.0
-```
 ## Results (Live Tracking)
 
 | Date | Record | Units | ROI |
 |------|--------|-------|-----|
 | 2026-03-03 | 8-2 | +5.27 | +52.7% |
 | 2026-03-04 | 2-4 | -2.18 | -36.3% |
-| 2026-03-05 | 3-3 | -0.27 | -4.5% |
-| **Total** | **13-9** | **+2.82** | **+12.8%** |
+| **Total** | **10-6** | **+3.09** | **+19.4%** |
 
-*High confidence picks: 8-1*
+**High confidence picks: 6-1**
+
+> Predictions are logged daily with full injury context, confidence tier, and spread. Results are auto-filled each evening from the NBA scoreboard.
+
+---
+
+## Daily Workflow
+
+```bash
+# Morning — fetch schedule, update injuries, predict all games
+python run.py schedule
+
+# Evening — auto-fill results from NBA scoreboard
+python run.py results
+
+# Check running ROI
+python run.py summary
+```
+
+---
+
+## Sample Output
+
+```
+  ══════════════════════════════════════════════════════════
+  NBA SCHEDULE — Wednesday, March 4, 2026
+  ══════════════════════════════════════════════════════════
+
+  BKN  @ MIA   Pick: MIA   71.5%  Spread: +6.5  Conf: High (0.765)   [INJ: -119H/-35A]
+  TOR  @ MIN   Pick: MIN   79.4%  Spread: +16.4  Conf: High (0.915)  [INJ: -35H/-70A]
+  DET  @ SAS   Pick: DET   67.7%  Spread: -4.0  Conf: Medium (0.737)
+  CHI  @ PHX   Pick: CHI   61.5%  Spread: -5.1  Conf: Medium (0.608) [INJ: -70H/-180A]
+  LAL  @ DEN   Pick: LAL   50.3%  Spread: +6.4  Conf: Medium (0.56)  [INJ: -159H/-7A]
+```
+
+---
+
+## Setup
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/JManson2038/NBA_AI_agent_Game_Predictor.git
+cd NBA_AI_agent_Game_Predictor
+
+# 2. Install dependencies
+pip install -r requirements.txt
+pip install torch
+
+# 3. Copy config and add your settings
+cp config.template.py config.py
+
+# 4. Train the main models (first run ~5 min)
+python run.py train
+
+# 5. Train the player value neural network
+python run.py train-nn
+
+# 6. Sync rosters
+python run.py roster
+
+# 7. Run today
+python run.py schedule
+```
+
+ 
+
+---
+
+## Player Tiers
+
+The `PlayerValueNN` scores every player 0-1 using box score stats and win impact metrics (50/50 weighted), then maps them to tiers used for injury Elo penalties:
+
+| Tier | Score | Elo Penalty | Example Players |
+|------|-------|-------------|-----------------|
+| Franchise | 0.50+ | −90 to −120 | SGA, Luka, Tatum |
+| Star | 0.40–0.50 | −60 to −85 | Jaylen Brown, Bam Adebayo |
+| Key Rotation | 0.28–0.40 | −30 to −55 | Jrue Holiday, Al Horford |
+| Bench | 0.14–0.28 | −10 to −25 | Role players |
+| Two-Way | 0.00–0.14 | −5 to −10 | Fringe roster |
+
+**Hard cap:** No team loses more than 180 Elo from injuries regardless of how many players are out.
+
+```bash
+python run.py train-nn --team OKC       # one team's rankings
+python run.py train-nn --tier Franchise  # all franchise players league-wide
+python run.py train-nn --tier Star       # all stars league-wide
+```
+
+---
+
+## All Commands
+
+```bash
+# Predictions
+python run.py schedule              # today's games + predictions
+python run.py results               # fill last night's results
+python run.py results --date 2026-03-04
+python run.py summary               # running ROI
+python run.py preview               # schedule only, no predictions
+python run.py main --home BOS --away LAL
+python run.py main --games OKC:BOS LAL:GSW
+python run.py rankings              # Elo power rankings
+
+# Training
+python run.py train                 # train LR + XGBoost models
+python run.py train-nn              # train player value NN
+python run.py train-nn --force      # re-fetch player data
+
+# Maintenance
+python run.py roster                # sync all 30 rosters
+python run.py roster --team LAL     # sync one team
+python run.py roster --check        # check cache staleness
+python run.py injuries              # update injuries.json from ESPN
+
+# Analysis
+python run.py backtest              # compare Model A / B / C
+python run.py backtest --season 2023-24
+python run.py backtest --min-edge 0.04
+```
+
+---
+
+## Project Structure
+
+```
+NBA_AI_agent_Game_Predictor/
+├── run.py                       entry point for all commands
+├── migrate.py                   one-time migration script
+├── config.py                    gitignored — add settings here
+├── config.template.py           safe to commit — copy to config.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── src/
+│   ├── __init__.py
+│   ├── agents/
+│   │   ├── __init__.py
+│   │   ├── data_agent.py        fetches and engineers NBA game data
+│   │   ├── team_strength_agent.py  Elo rating system
+│   │   ├── matchup_agent.py     pace, shooting, momentum analysis
+│   │   ├── prediction_agent.py  LR + XGBoost ensemble
+│   │   ├── confidence_agent.py  prediction reliability scoring
+│   │   ├── injury_agent.py      calibrated tiered Elo penalties
+│   │   └── orchestrator.py      combines all agents
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── player_value_nn.py   neural network player importance
+│   └── utils/
+│       ├── __init__.py
+│       └── evaluate.py          accuracy, Brier score, calibration
+│
+├── scripts/
+│   ├── main.py                  CLI predictions
+│   ├── train.py                 training pipeline
+│   ├── train_player_nn.py       player NN training and tier viewer
+│   ├── schedule.py              auto-fetch schedule and predict
+│   ├── roster_sync.py           detect trades and roster changes
+│   ├── injury_updater.py        scrape ESPN injury report
+│   ├── prediction_tracker.py    manual prediction logging
+│   └── backtest_injury.py       A/B/C injury model comparison
+│
+├── data/
+│   ├── injuries.json            current injury statuses
+│   └── predictions_log.json     all logged predictions and results
+│
+├── cache/                       auto-generated, gitignored
+└── models/                      trained model files, gitignored
+```
+
+---
+
+## Tech Stack
+
+Python · pandas · scikit-learn · XGBoost · PyTorch · nba_api
