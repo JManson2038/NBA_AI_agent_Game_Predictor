@@ -19,14 +19,6 @@ NBA API
 
 ---
 
-## Results (Live Tracking)
-
-| Date | Record | Units | ROI |
-|------|--------|-------|-----|
-| 2026-03-03 | 8-2 | +5.27 | +52.7% |
-| 2026-03-04 | 2-4 | -2.18 | -36.3% |
-| **Total** | **10-6** | **+3.09** | **+19.4%** |
-
 **High confidence picks: 6-1**
 
 > Predictions are logged daily with full injury context, confidence tier, and spread. Results are auto-filled each evening from the NBA scoreboard.
