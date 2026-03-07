@@ -17,9 +17,6 @@ Usage:
     python run.py roster --check        # check if cache is stale
     python run.py injuries              # update injuries.json from ESPN
     python run.py backtest              # A/B/C injury model comparison
-    python run.py clv --fetch           # fetch opening lines
-    python run.py clv --close           # fetch closing lines + attach CLV
-    python run.py clv --summary         # show CLV analysis
     python run.py tracker --predict BOS LAL
     python run.py tracker --summary
     python run.py main --home BOS --away LAL
