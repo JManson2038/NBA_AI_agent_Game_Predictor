@@ -7,7 +7,7 @@ import time
 import json
 from datetime import date, datetime
 
-from nba_api.stats.endpoints import ScoreboardV2
+from nba_api.stats.endpoints import ScoreboardV2, ScoreboardV3
 from nba_api.stats.static import teams as nba_teams
 
 from src.agents.orchestrator import Orchestrator, format_prediction
@@ -82,10 +82,9 @@ def fetch_todays_games(game_date=None):
         scoreboard = None
         for attempt in range(3):
             try:
-                scoreboard = ScoreboardV2(
+                scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
-                    day_offset=0,
                     headers=HEADERS,
                     timeout=60,
                 )
