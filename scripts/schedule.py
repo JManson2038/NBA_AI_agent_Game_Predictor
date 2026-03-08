@@ -7,7 +7,7 @@ import time
 import json
 from datetime import date, datetime
 
-from nba_api.stats.endpoints import ScoreboardV3
+from nba_api.stats.endpoints import ScoreboardV2
 from nba_api.stats.static import teams as nba_teams
 
 from src.agents.orchestrator import Orchestrator, format_prediction
@@ -85,9 +85,10 @@ def fetch_todays_games(game_date=None):
         scoreboard = None
         for attempt in range(3):
             try:
-                scoreboard = ScoreboardV3(
+                scoreboard = ScoreboardV2(
                     game_date=date_str,
                     league_id="00",
+                    day_offset=0,
                     headers=HEADERS,
                     timeout=60,
                 )
@@ -100,28 +101,40 @@ def fetch_todays_games(game_date=None):
                     raise e
         time.sleep(0.6)
 
-        all_teams = nba_teams.get_teams()
-        id_to_abbr = {t["id"]: t["abbreviation"] for t in all_teams}
-        id_to_name = {t["id"]: t["full_name"] for t in all_teams}
+        dfs = scoreboard.get_data_frames()
+        game_df = dfs[1]  # game status
 
-        game_header = scoreboard.game_header.get_data_frame()
-        if game_header.empty:
+        if game_df.empty:
             print(f"  No games scheduled for {date_str}.")
             return []
 
+        all_teams = nba_teams.get_teams()
+        abbr_to_name = {t["abbreviation"]: t["full_name"] for t in all_teams}
+
         games = []
-        for _, row in game_header.iterrows():
-            home_id = int(row["HOME_TEAM_ID"])
-            away_id = int(row["VISITOR_TEAM_ID"])
+        for _, row in game_df.iterrows():
+            # gameCode format: "20260307/ORLMIN"
+            code = str(row.get("gameCode", ""))
+            if "/" not in code:
+                continue
+            teams_part = code.split("/")[1]
+            if len(teams_part) != 6:
+                continue
+            away_abbr = teams_part[:3]
+            home_abbr = teams_part[3:]
+
+            status_text = str(row.get("gameStatusText", "TBD")).strip()
+            status_id   = int(row.get("gameStatus", 1))
+
             games.append({
-                "game_id":   str(row["GAME_ID"]),
+                "game_id":   str(row["gameId"]),
                 "date":      date_str,
-                "home":      id_to_abbr.get(home_id, str(home_id)),
-                "away":      id_to_abbr.get(away_id, str(away_id)),
-                "home_name": id_to_name.get(home_id, str(home_id)),
-                "away_name": id_to_name.get(away_id, str(away_id)),
-                "time":      str(row.get("GAME_STATUS_TEXT", "TBD")).strip(),
-                "status_id": int(row.get("GAME_STATUS_ID", 1)),
+                "home":      home_abbr,
+                "away":      away_abbr,
+                "home_name": abbr_to_name.get(home_abbr, home_abbr),
+                "away_name": abbr_to_name.get(away_abbr, away_abbr),
+                "time":      status_text,
+                "status_id": status_id,
             })
 
         # Deduplicate
@@ -149,9 +162,10 @@ def fetch_final_scores(game_date=None):
         scoreboard = None
         for attempt in range(3):
             try:
-                scoreboard = ScoreboardV3(
+                scoreboard = ScoreboardV2(
                     game_date=date_str,
                     league_id="00",
+                    day_offset=0,
                     headers=HEADERS,
                     timeout=60,
                 )
@@ -164,7 +178,7 @@ def fetch_final_scores(game_date=None):
                     raise e
         time.sleep(0.6)
 
-        line_score = scoreboard.game_scoreboard.get_data_frame()
+        line_score = scoreboard.line_score.get_data_frame()
         game_header = scoreboard.game_header.get_data_frame()
         all_teams = nba_teams.get_teams()
         id_to_abbr = {t["id"]: t["abbreviation"] for t in all_teams}
@@ -328,7 +342,7 @@ def main():
     game_date = datetime.strptime(args.date, "%Y-%m-%d").date() if args.date else date.today()
 
     print(f"\n  {'='*58}")
-    print(f"  NBA SCHEDULE — {game_date.strftime('%A, %B %d, %Y').replace(' 0', ' ')}")
+    print(f"  NBA SCHEDULE — {game_date.strftime('%A, %B %-d, %Y')}")
     print(f"  {'='*58}")
 
     if args.results:
