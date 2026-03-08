@@ -7,7 +7,7 @@ import time
 import json
 from datetime import date, datetime
 
-from nba_api.stats.endpoints import ScoreboardV2
+from nba_api.stats.endpoints import ScoreboardV3
 from nba_api.stats.static import teams as nba_teams
 
 from src.agents.orchestrator import Orchestrator, format_prediction
@@ -85,7 +85,7 @@ def fetch_todays_games(game_date=None):
         scoreboard = None
         for attempt in range(3):
             try:
-                scoreboard = ScoreboardV2(
+                scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
                     day_offset=0,
@@ -150,7 +150,7 @@ def fetch_final_scores(game_date=None):
         scoreboard = None
         for attempt in range(3):
             try:
-                scoreboard = ScoreboardV2(
+                scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
                     day_offset=0,
@@ -166,7 +166,7 @@ def fetch_final_scores(game_date=None):
                     raise e
         time.sleep(0.6)
 
-        line_score = scoreboard.line_score.get_data_frame()
+        line_score = scoreboard.game_scoreboard.get_data_frame()
         game_header = scoreboard.game_header.get_data_frame()
         all_teams = nba_teams.get_teams()
         id_to_abbr = {t["id"]: t["abbreviation"] for t in all_teams}
