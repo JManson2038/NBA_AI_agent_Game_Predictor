@@ -14,10 +14,10 @@ class Orchestrator:
         self.matchup_agent = MatchupAgent()
         self.prediction_agent = PredictionAgent()
         self.confidence_agent = ConfidenceAgent()
-        self.injury_agent = InjuryAgent()          # ← new
+        self.injury_agent = InjuryAgent()        
 
     def predict_from_row(self, row, feature_cols):
-        """Generate a full prediction from a dataset row."""
+       # Generate a full prediction from a dataset row
         X = np.array([row[c] for c in feature_cols]).reshape(1, -1)
         pred = self.prediction_agent.predict(X)
 
@@ -65,7 +65,7 @@ class Orchestrator:
         }
 
     def predict_matchup(self, home_abbr, away_abbr, latest_features, feature_cols):
-        """Predict a game given two team abbreviations, with injury adjustments."""
+       # Predict a game given two team abbreviations, with injury adjustments
         home_abbr = home_abbr.upper()
         away_abbr = away_abbr.upper()
 
@@ -126,7 +126,7 @@ class Orchestrator:
         return result
 
     def predict_batch(self, df, feature_cols):
-        """Predict all games in a dataframe (no injury adjustment for batch)."""
+        # Predict all games in a dataframe (no injury adjustment for batch)
         results = []
         for _, row in df.iterrows():
             try:
@@ -139,7 +139,7 @@ class Orchestrator:
 
 
 def format_prediction(pred):
-    """Pretty-print a single prediction including injury report."""
+   # Pretty-print a single prediction including injury report
     if "error" in pred:
         return "Error: " + pred["error"]
 

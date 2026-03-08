@@ -109,11 +109,6 @@ class InjuryAgent:
     # ── Phase 3: Objective tier classification ───────────────────
 
     def _classify_tier(self, record):
-        """
-        Classify player tier using the PlayerValueNN score.
-        Uses the same TIERS and score_to_tier as train_player_nn.py
-        so display and penalty tiers are always in sync.
-        """
         try:
             from src.models.player_value_nn import PlayerValueNN, generate_importance_label
             if not hasattr(self, '_nn'):

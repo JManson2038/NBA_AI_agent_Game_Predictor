@@ -1,15 +1,4 @@
-"""
-prediction_tracker.py — Log and evaluate live predictions
 
-Saves each prediction to a JSON log with today's injury context,
-then lets you record actual results and measure real ROI over time.
-
-Usage:
-    python prediction_tracker.py --predict OKC DAL   # log a prediction
-    python prediction_tracker.py --result OKC DAL 1  # record result (1=home win)
-    python prediction_tracker.py --summary            # show ROI and accuracy
-    python prediction_tracker.py --pending            # show unresolved predictions
-"""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))

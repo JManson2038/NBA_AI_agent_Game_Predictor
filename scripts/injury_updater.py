@@ -1,13 +1,3 @@
-"""
-injury_updater.py — Auto-sync injuries.json from ESPN
-
-Fetches the current NBA injury report from ESPN and updates
-injuries.json automatically. Runs before every schedule.py prediction.
-
-Usage:
-    python injury_updater.py          # update injuries.json now
-    python injury_updater.py --show   # show current injuries without saving
-"""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))

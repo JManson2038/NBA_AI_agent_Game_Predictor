@@ -5,15 +5,15 @@ import config
 
 
 class MatchupAgent:
-    """Detects stylistic mismatches between home and away teams."""
+   # Detects stylistic mismatches between home and away teams
 
     def __init__(self):
         self.matchup_signals = []
-        # Fix #3: Momentum damping factor (reduce hot streak weight)
+        #  Momentum damping factor (reduce hot streak weight)
         self.momentum_damping = 0.5  # 50% reduction
 
     def run(self, df):
-        """Add matchup-derived features to the dataset."""
+        # matchup-derived features to the dataset
         print("[MatchupAgent] Computing matchup signals...")
         df = df.copy()
         short = config.ROLLING_WINDOW_SHORT
@@ -105,7 +105,7 @@ class MatchupAgent:
         return df
 
     def explain_matchup(self, row):
-        """Generate key factor explanations for a single game."""
+        # Generate key factor explanations for a single game
         factors = []
 
         elo_diff = row.get("ELO_DIFF", 0)
@@ -148,7 +148,7 @@ class MatchupAgent:
         elif tov < -2:
             factors.append("Away team takes better care of the ball")
 
-        # Fix #5: Flag model conflict in explanation
+        # Flag model conflict in explanation
         model_gap = row.get("MODEL_GAP", 0)
         if model_gap > 0.20:
             factors.append("WARNING: Models disagree significantly (gap=" + str(round(model_gap, 2)) + ")")
@@ -159,7 +159,7 @@ class MatchupAgent:
         return factors
 
     def get_matchup_feature_columns(self, df):
-        """Return the matchup-specific feature columns."""
+        # Return the matchup-specific feature columns 
         matchup_cols = [
             "PACE_DIFF", "THREE_PT_ADVANTAGE", "REBOUND_EDGE",
             "TOV_DIFF", "AST_DIFF", "HOME_MOMENTUM", "AWAY_MOMENTUM",

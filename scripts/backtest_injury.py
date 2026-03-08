@@ -1,25 +1,4 @@
-"""
-backtest_injury.py — Phase 1 & 2: Compare injury model versions
 
-Tests three models over your historical dataset:
-  Model A — No injury adjustment (pure Elo + features)
-  Model B — Current fixed penalty model
-  Model C — Phase 3 calibrated tiered model
-
-Metrics per model:
-  - Accuracy (win %)
-  - Units won/lost at -110
-  - ROI %
-  - Average edge vs 50/50 baseline
-  - Brier score
-  - Accuracy by confidence tier
-
-Usage:
-    python backtest_injury.py                   # all models, 2024-25
-    python backtest_injury.py --season 2023-24
-    python backtest_injury.py --model C         # one model only
-    python backtest_injury.py --min-edge 0.04   # only high-edge games
-"""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -43,9 +22,7 @@ import config
 CACHE_DIR = Path("cache")
 
 
-# ─────────────────────────────────────────────────────────────────
 #  Betting math
-# ─────────────────────────────────────────────────────────────────
 
 def american_to_implied(odds=-110):
     """Convert American odds to implied probability."""
@@ -94,10 +71,8 @@ def roi(units, bets):
     return round((units / bets) * 100, 2)
 
 
-# ─────────────────────────────────────────────────────────────────
-#  Model runners
-# ─────────────────────────────────────────────────────────────────
 
+#  Model runners
 def load_pipeline(season):
     """Load all agents and dataset."""
     cache_path = CACHE_DIR / "matchup_dataset.parquet"
@@ -243,9 +218,8 @@ def run_model_c(test_df, feature_cols, prediction_agent, confidence_agent):
     return results
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Reporting
-# ─────────────────────────────────────────────────────────────────
 
 def evaluate_model(name, results, min_edge=0.0):
     """Compute and print all metrics for one model."""
@@ -325,9 +299,8 @@ def print_comparison(results_dict):
     print(f"  {'='*65}\n")
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Main
-# ─────────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="Backtest injury model versions")

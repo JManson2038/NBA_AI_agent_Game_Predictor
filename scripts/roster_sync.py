@@ -1,15 +1,4 @@
-"""
-roster_sync.py — Manual roster sync tool
 
-Detects trades, roster adds/drops, fixes injuries.json
-when players switch teams, and warns about stale cache.
-
-Usage:
-    python roster_sync.py              # full sync all 30 teams
-    python roster_sync.py --team BOS   # sync one team only
-    python roster_sync.py --check      # just check if cache is stale
-    python roster_sync.py --trades     # only show detected trades
-"""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -54,9 +43,8 @@ ALL_TEAMS = [
 ]
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Cache helpers
-# ─────────────────────────────────────────────────────────────────
 
 def load_roster_cache():
     """Load existing roster cache or return empty dict."""
@@ -101,9 +89,8 @@ def check_stale(warn_only=False):
         return False
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Roster fetching
-# ─────────────────────────────────────────────────────────────────
 
 def fetch_team_roster(team_id, team_abbr, retries=3, delay=5):
     """Fetch current roster for one team from nba_api with retries."""
@@ -162,9 +149,8 @@ def fetch_all_rosters(teams_to_sync):
     return rosters
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Change detection
-# ─────────────────────────────────────────────────────────────────
 
 def detect_changes(old_rosters, new_rosters):
     """
@@ -220,9 +206,8 @@ def detect_changes(old_rosters, new_rosters):
     return trades, added, dropped
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  injuries.json auto-fix
-# ─────────────────────────────────────────────────────────────────
 
 def fix_injuries_for_trades(trades):
     """
@@ -286,12 +271,11 @@ def fix_injuries_for_trades(trades):
         print("  No injury entries needed moving.")
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Reporting
-# ─────────────────────────────────────────────────────────────────
 
 def print_changes(trades, added, dropped):
-    """Print a clean summary of all roster changes."""
+    #Print a clean summary of all roster changes
 
     if not trades and not added and not dropped:
         print("\n  No roster changes detected since last sync.")
@@ -317,7 +301,7 @@ def print_changes(trades, added, dropped):
 
 
 def log_changes(trades, added, dropped):
-    """Append changes to a sync log file."""
+    #Append changes to a sync log file
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     lines = [f"\n[{timestamp}]"]
 
@@ -334,9 +318,8 @@ def log_changes(trades, added, dropped):
         f.write("\n".join(lines))
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Main
-# ─────────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="Sync NBA rosters and detect changes")

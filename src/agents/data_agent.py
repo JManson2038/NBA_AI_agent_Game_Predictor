@@ -30,7 +30,7 @@ HEADERS = {
 
 
 def fetch_with_retry(endpoint_fn, retries=3, delay=5):
-    """Retry wrapper for flaky nba_api calls."""
+    # Retry wrapper for flaky nba_api calls
     for attempt in range(retries):
         try:
             return endpoint_fn()

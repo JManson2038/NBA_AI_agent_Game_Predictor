@@ -48,7 +48,7 @@ class PredictionAgent:
         self.is_trained = False
 
     def train(self, df, feature_cols):
-        """Train all models on the provided dataset."""
+       # Train all models on the provided dataset
         print("[PredictionAgent] Training models...")
         self.feature_cols = feature_cols
 
@@ -107,13 +107,13 @@ class PredictionAgent:
         }
 
     def predict_single(self, features):
-        """Predict a single game from a feature dictionary."""
+        # Predict a single game from a feature dictionary
         X = np.array([features.get(c, 0) for c in self.feature_cols])
         X = X.reshape(1, -1)
         return self.predict(X)
 
     def get_feature_importance(self, top_n=15):
-        """Return XGBoost feature importance."""
+       # Return XGBoost feature importance 
         if not self.is_trained:
             self._load_models()
         imp = pd.DataFrame({

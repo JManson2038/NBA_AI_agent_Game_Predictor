@@ -87,10 +87,7 @@ HELP = """
       --season 2023-24
       --model C
       --min-edge 0.04
-    clv               Closing line value tracker
-      --fetch         Fetch opening lines
-      --close         Fetch closing lines + attach CLV
-      --summary       Show CLV analysis
+      
     tracker           Manual prediction logger
       --predict BOS LAL
       --result BOS LAL 1

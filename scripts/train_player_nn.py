@@ -1,7 +1,4 @@
-"""
-train_player_nn.py
-Train the PlayerValueNN and print ranked player tiers for all 30 teams.
-"""
+
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -51,7 +48,7 @@ def show_all_teams(nn, all_players):
 
 
 def show_one_team(nn, all_players, team_abbr):
-    """Print rankings for a single team."""
+    # Print rankings for a single team
     team_abbr = team_abbr.upper()
     team_players = get_team_players(all_players, team_abbr)
     if not team_players:
@@ -61,7 +58,7 @@ def show_one_team(nn, all_players, team_abbr):
 
 
 def show_by_tier(nn, all_players, tier_filter):
-    """Print all players league-wide matching a specific tier."""
+    # Print all players league-wide matching a specific tier
     from player_value_nn import score_to_tier
 
     print(f"\n  ALL PLAYERS — Tier: {tier_filter}")
