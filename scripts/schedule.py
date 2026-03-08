@@ -152,7 +152,6 @@ def fetch_final_scores(game_date=None):
                 scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
-                    day_offset=0,
                     headers=HEADERS,
                     timeout=60,
                 )
