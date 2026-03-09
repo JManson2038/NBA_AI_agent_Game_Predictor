@@ -158,7 +158,7 @@ def fetch_final_scores(game_date=None):
         scoreboard = None
         for attempt in range(3):
             try:
-                scoreboard = ScoreboardV2(
+                scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
                     day_offset=0,
