@@ -19,8 +19,6 @@ NBA API
 
 ---
 
-**High confidence picks: 6-1**
-
 > Predictions are logged daily with full injury context, confidence tier, and spread. Results are auto-filled each evening from the NBA scoreboard.
 
 ---
