@@ -7,7 +7,7 @@ import time
 import json
 from datetime import date, datetime
 
-from nba_api.stats.endpoints import ScoreboardV2, ScoreboardV3
+from nba_api.stats.endpoints import ScoreboardV2
 from nba_api.stats.static import teams as nba_teams
 
 from src.agents.orchestrator import Orchestrator, format_prediction
@@ -34,8 +34,9 @@ LOG_FILE = Path("predictions_log.json")
 CACHE_DIR = Path("cache")
 
 
-
+# ─────────────────────────────────────────────────────────────────
 #  Pipeline loader
+# ─────────────────────────────────────────────────────────────────
 
 def load_pipeline():
     import pandas as pd
@@ -69,8 +70,10 @@ def load_pipeline():
     return orch, dataset, feature_cols, strength_agent
 
 
-
+# ─────────────────────────────────────────────────────────────────
 #  Schedule fetching
+# ─────────────────────────────────────────────────────────────────
+
 def fetch_todays_games(game_date=None):
     if game_date is None:
         game_date = date.today()
@@ -85,6 +88,7 @@ def fetch_todays_games(game_date=None):
                 scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
+                    day_offset=0,
                     headers=HEADERS,
                     timeout=60,
                 )
@@ -210,8 +214,9 @@ def fetch_final_scores(game_date=None):
         return {}
 
 
-
+# ─────────────────────────────────────────────────────────────────
 #  Prediction logging
+# ─────────────────────────────────────────────────────────────────
 
 def load_log():
     if not LOG_FILE.exists():
@@ -234,8 +239,9 @@ def already_logged(home, away, game_date):
     )
 
 
-
+# ─────────────────────────────────────────────────────────────────
 #  Display helpers
+# ─────────────────────────────────────────────────────────────────
 
 def print_schedule(games):
     print(f"\n  {'─'*58}")
@@ -268,7 +274,11 @@ def print_prediction_summary(game, pred):
         f"Conf: {conf} ({conf_score}){inj_flag}"
     )
 
+
+# ─────────────────────────────────────────────────────────────────
 #  Auto-result filling
+# ─────────────────────────────────────────────────────────────────
+
 def auto_fill_results(game_date=None):
     if game_date is None:
         game_date = date.today()
@@ -317,8 +327,9 @@ def auto_fill_results(game_date=None):
         print("  No matching pending predictions found.")
 
 
-
+# ─────────────────────────────────────────────────────────────────
 #  Main
+# ─────────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="Auto-fetch NBA schedule and predict games")
