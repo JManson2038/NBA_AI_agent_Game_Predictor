@@ -1,16 +1,3 @@
-"""
-player_value_nn.py — Neural network for player importance scoring
-
-Learns player value from:
-  - Box score stats: PTS, REB, AST, STL, BLK, TOV, MIN, USG_PCT
-  - Win impact stats: PLUS_MINUS, WIN_SHARES (approximated), BPM proxy
-  - Role context: how much the team depends on this player
-
-Outputs:
-  - importance_score: float 0-1
-  - tier: Franchise / Star / Key Rotation / Bench / Two-Way
-"""
-
 import json
 import time
 import numpy as np
@@ -54,6 +41,16 @@ HEADERS = {
     'Pragma': 'no-cache',
     'Cache-Control': 'no-cache',
 }
+def fetch_with_retry(endpoint_fn, retries=3, delay=5):
+    for attempt in range(retries):
+        try:
+            return endpoint_fn()
+        except Exception as e:
+            if attempt < retries - 1:
+                print(f"  Attempt {attempt+1} failed ({e}), retrying in {delay}s...")
+                time.sleep(delay)
+            else:
+                raise e
 
 # ── Tier definitions (score thresholds) ──────────────────────────
 TIERS = {
@@ -127,15 +124,14 @@ class PlayerValueNet(nn.Module):
         return self.net(x).squeeze(-1)
 
 
-# ─────────────────────────────────────────────────────────────────
+
 #  Data Collection
-# ─────────────────────────────────────────────────────────────────
 
 class PlayerDataCollector:
     """Fetches and caches player stats from nba_api."""
 
     def __init__(self, seasons=None):
-        self.seasons = seasons or ["2022-23", "2023-24", "2024-25"]
+        self.seasons = seasons or ["2023-24", "2024-25", "2025-26"]
 
     def fetch_league_stats(self, season, force=False):
         """Fetch all player per-game stats for a season."""
@@ -158,7 +154,7 @@ class PlayerDataCollector:
                 per_mode_detailed="PerGame",
                 measure_type_detailed_defense="Base",
                 headers=HEADERS,
-                timeout=60,
+                timeout=120,
             )
             time.sleep(0.8)
             base_df = base.get_data_frames()[0]
@@ -169,7 +165,7 @@ class PlayerDataCollector:
                 per_mode_detailed="PerGame",
                 measure_type_detailed_defense="Advanced",
                 headers=HEADERS,
-                timeout=60,
+                timeout=120,
             )
             time.sleep(0.8)
             adv_df = adv.get_data_frames()[0]
