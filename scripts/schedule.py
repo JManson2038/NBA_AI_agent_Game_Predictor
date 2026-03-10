@@ -7,7 +7,7 @@ import time
 import json
 from datetime import date, datetime
 
-from nba_api.stats.endpoints import ScoreboardV2
+from nba_api.stats.endpoints import ScoreboardV3
 from nba_api.stats.static import teams as nba_teams
 
 from src.agents.orchestrator import Orchestrator, format_prediction
@@ -88,15 +88,14 @@ def fetch_todays_games(game_date=None):
                 scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
-                    day_offset=0,
                     headers=HEADERS,
-                    timeout=60,
+                    timeout=180,
                 )
                 break
             except Exception as e:
                 if attempt < 2:
                     print(f"  Timeout, retrying ({attempt+1}/3)...")
-                    time.sleep(5)
+                    time.sleep(15)
                 else:
                     raise e
         time.sleep(0.6)
@@ -160,49 +159,56 @@ def fetch_final_scores(game_date=None):
 
     try:
         scoreboard = None
-        for attempt in range(3):
+        for attempt in range(5):
             try:
                 scoreboard = ScoreboardV3(
                     game_date=date_str,
                     league_id="00",
-                    day_offset=0,
                     headers=HEADERS,
-                    timeout=60,
+                    timeout=180,
                 )
                 break
             except Exception as e:
                 if attempt < 2:
                     print(f"  Timeout, retrying ({attempt+1}/3)...")
-                    time.sleep(5)
+                    time.sleep(15)
                 else:
                     raise e
         time.sleep(0.6)
 
         line_score = scoreboard.line_score.get_data_frame()
         game_header = scoreboard.game_header.get_data_frame()
-        all_teams = nba_teams.get_teams()
-        id_to_abbr = {t["id"]: t["abbreviation"] for t in all_teams}
 
         scores = {}
         for _, game_row in game_header.iterrows():
-            game_id = str(game_row["GAME_ID"])
-            if int(game_row.get("GAME_STATUS_ID", 1)) != 3:
+            game_id = str(game_row["gameId"])
+            if int(game_row.get("gameStatus", 1)) != 3:
                 continue
 
-            home_id = int(game_row["HOME_TEAM_ID"])
-            away_id = int(game_row["VISITOR_TEAM_ID"])
-            home_line = line_score[line_score["TEAM_ID"] == home_id]
-            away_line = line_score[line_score["TEAM_ID"] == away_id]
+            # Parse home/away from gameCode (e.g. "20260309/PHICLE")
+            code = str(game_row.get("gameCode", ""))
+            if "/" not in code:
+                continue
+            teams_part = code.split("/")[1]
+            if len(teams_part) != 6:
+                continue
+            away_abbr = teams_part[:3]
+            home_abbr = teams_part[3:]
+
+            # Match line_score rows by gameId + teamTricode
+            game_lines = line_score[line_score["gameId"] == game_row["gameId"]]
+            home_line = game_lines[game_lines["teamTricode"] == home_abbr]
+            away_line = game_lines[game_lines["teamTricode"] == away_abbr]
 
             if home_line.empty or away_line.empty:
                 continue
 
-            home_pts = int(home_line.iloc[0].get("PTS", 0) or 0)
-            away_pts = int(away_line.iloc[0].get("PTS", 0) or 0)
+            home_pts = int(home_line.iloc[0].get("score", 0) or 0)
+            away_pts = int(away_line.iloc[0].get("score", 0) or 0)
 
             scores[game_id] = {
-                "home":       id_to_abbr.get(home_id, str(home_id)),
-                "away":       id_to_abbr.get(away_id, str(away_id)),
+                "home":       home_abbr,
+                "away":       away_abbr,
                 "home_score": home_pts,
                 "away_score": away_pts,
                 "home_won":   1 if home_pts > away_pts else 0,
