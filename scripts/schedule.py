@@ -7,7 +7,6 @@ import time
 import json
 from datetime import date, datetime
 
-from nba_api.stats.endpoints import ScoreboardV3
 from nba_api.stats.static import teams as nba_teams
 
 from src.agents.orchestrator import Orchestrator, format_prediction
@@ -71,17 +70,58 @@ def load_pipeline():
 
 
 # ─────────────────────────────────────────────────────────────────
-#  Schedule fetching
+#  Schedule fetching — PRIMARY: live CDN
 # ─────────────────────────────────────────────────────────────────
 
-def fetch_todays_games(game_date=None):
+def fetch_todays_games_live(game_date=None):
+    """Primary: fetch today's games from cdn.nba.com (fast, reliable)."""
+    try:
+        from nba_api.live.nba.endpoints import scoreboard
+
+        print("  Using live CDN endpoint...")
+        board = scoreboard.ScoreBoard()
+        games = board.get_dict()["scoreboard"]["games"]
+        all_teams = nba_teams.get_teams()
+        abbr_to_name = {t["abbreviation"]: t["full_name"] for t in all_teams}
+
+        date_str = (game_date or date.today()).strftime("%Y-%m-%d")
+
+        result = []
+        for g in games:
+            home_abbr = g["homeTeam"]["teamTricode"]
+            away_abbr = g["awayTeam"]["teamTricode"]
+
+            result.append({
+                "game_id":   g["gameId"],
+                "date":      date_str,
+                "home":      home_abbr,
+                "away":      away_abbr,
+                "home_name": abbr_to_name.get(home_abbr, home_abbr),
+                "away_name": abbr_to_name.get(away_abbr, away_abbr),
+                "time":      g.get("gameStatusText", "TBD").strip(),
+                "status_id": g.get("gameStatus", 1),
+            })
+        return result
+    except Exception as e:
+        print(f"  Live CDN failed: {e}")
+        return []
+
+
+# ─────────────────────────────────────────────────────────────────
+#  Schedule fetching — FALLBACK: stats.nba.com
+# ─────────────────────────────────────────────────────────────────
+
+def fetch_todays_games_stats(game_date=None):
+    """Fallback: fetch games from stats.nba.com (slow, flaky)."""
     if game_date is None:
         game_date = date.today()
 
     date_str = game_date.strftime("%Y-%m-%d") if hasattr(game_date, "strftime") else game_date
-    print(f"  Fetching schedule for {date_str}...")
+    print(f"  Falling back to stats.nba.com for {date_str}...")
 
     try:
+        from nba_api.stats.endpoints import ScoreboardV3
+
         scoreboard = None
         for attempt in range(3):
             try:
@@ -101,7 +141,7 @@ def fetch_todays_games(game_date=None):
         time.sleep(0.6)
 
         dfs = scoreboard.get_data_frames()
-        game_df = dfs[1]  # game status
+        game_df = dfs[1]
 
         if game_df.empty:
             print(f"  No games scheduled for {date_str}.")
@@ -112,7 +152,6 @@ def fetch_todays_games(game_date=None):
 
         games = []
         for _, row in game_df.iterrows():
-            # gameCode format: "20260307/ORLMIN"
             code = str(row.get("gameCode", ""))
             if "/" not in code:
                 continue
@@ -136,7 +175,6 @@ def fetch_todays_games(game_date=None):
                 "status_id": status_id,
             })
 
-        # Deduplicate
         seen = set()
         unique = []
         for g in games:
@@ -147,17 +185,77 @@ def fetch_todays_games(game_date=None):
         return unique
 
     except Exception as e:
-        print(f"  Error fetching schedule: {e}")
+        print(f"  stats.nba.com also failed: {e}")
         return []
 
 
-def fetch_final_scores(game_date=None):
+def fetch_todays_games(game_date=None):
+    """Try live CDN first (today only), then fall back to stats.nba.com."""
+    if game_date is None:
+        game_date = date.today()
+
+    # Live CDN only works for today
+    if game_date == date.today():
+        games = fetch_todays_games_live(game_date)
+        if games:
+            return games
+
+    # Fallback to stats.nba.com (works for any date)
+    return fetch_todays_games_stats(game_date)
+
+
+# ─────────────────────────────────────────────────────────────────
+#  Score fetching — PRIMARY: live CDN
+# ─────────────────────────────────────────────────────────────────
+
+def fetch_final_scores_live():
+    """Primary: fetch final scores from cdn.nba.com (today only)."""
+    try:
+        from nba_api.live.nba.endpoints import scoreboard
+
+        print("  Using live CDN endpoint...")
+        board = scoreboard.ScoreBoard()
+        games = board.get_dict()["scoreboard"]["games"]
+
+        scores = {}
+        for g in games:
+            if g["gameStatus"] != 3:
+                continue
+
+            game_id = g["gameId"]
+            home_abbr = g["homeTeam"]["teamTricode"]
+            away_abbr = g["awayTeam"]["teamTricode"]
+            home_pts = int(g["homeTeam"]["score"])
+            away_pts = int(g["awayTeam"]["score"])
+
+            scores[game_id] = {
+                "home":       home_abbr,
+                "away":       away_abbr,
+                "home_score": home_pts,
+                "away_score": away_pts,
+                "home_won":   1 if home_pts > away_pts else 0,
+            }
+        return scores
+    except Exception as e:
+        print(f"  Live CDN failed: {e}")
+        return {}
+
+
+# ─────────────────────────────────────────────────────────────────
+#  Score fetching — FALLBACK: stats.nba.com
+# ─────────────────────────────────────────────────────────────────
+
+def fetch_final_scores_stats(game_date=None):
+    """Fallback: fetch final scores from stats.nba.com (any date)."""
     if game_date is None:
         game_date = date.today()
 
     date_str = game_date.strftime("%Y-%m-%d") if hasattr(game_date, "strftime") else game_date
+    print(f"  Falling back to stats.nba.com for {date_str}...")
 
     try:
+        from nba_api.stats.endpoints import ScoreboardV3
+
         scoreboard = None
         for attempt in range(5):
             try:
@@ -169,8 +267,8 @@ def fetch_final_scores(game_date=None):
                 )
                 break
             except Exception as e:
-                if attempt < 2:
-                    print(f"  Timeout, retrying ({attempt+1}/3)...")
+                if attempt < 4:
+                    print(f"  Timeout, retrying ({attempt+1}/5)...")
                     time.sleep(15)
                 else:
                     raise e
@@ -185,7 +283,6 @@ def fetch_final_scores(game_date=None):
             if int(game_row.get("gameStatus", 1)) != 3:
                 continue
 
-            # Parse home/away from gameCode (e.g. "20260309/PHICLE")
             code = str(game_row.get("gameCode", ""))
             if "/" not in code:
                 continue
@@ -195,7 +292,6 @@ def fetch_final_scores(game_date=None):
             away_abbr = teams_part[:3]
             home_abbr = teams_part[3:]
 
-            # Match line_score rows by gameId + teamTricode
             game_lines = line_score[line_score["gameId"] == game_row["gameId"]]
             home_line = game_lines[game_lines["teamTricode"] == home_abbr]
             away_line = game_lines[game_lines["teamTricode"] == away_abbr]
@@ -216,8 +312,23 @@ def fetch_final_scores(game_date=None):
         return scores
 
     except Exception as e:
-        print(f"  Error fetching scores: {e}")
+        print(f"  stats.nba.com also failed: {e}")
         return {}
+
+
+def fetch_final_scores(game_date=None):
+    """Try live CDN first (today only), then fall back to stats.nba.com."""
+    if game_date is None:
+        game_date = date.today()
+
+    # Live CDN only works for today
+    if game_date == date.today():
+        scores = fetch_final_scores_live()
+        if scores:
+            return scores
+
+    # Fallback to stats.nba.com (works for any date)
+    return fetch_final_scores_stats(game_date)
 
 
 # ─────────────────────────────────────────────────────────────────

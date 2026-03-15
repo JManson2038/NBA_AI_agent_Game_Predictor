@@ -99,10 +99,21 @@ class PredictionAgent:
         xgb_prob = self.xgb_model.predict_proba(X)[:, 1]
         spread = self.spread_model.predict(X)
 
+        ensemble = 0.3 * lr_prob + 0.7 * xgb_prob
+
+        # Convert to Python scalars for numpy 2.x compatibility
+        if lr_prob.size == 1:
+            return {
+                "lr_prob": float(lr_prob.item()),
+                "xgb_prob": float(xgb_prob.item()),
+                "ensemble_prob": float(ensemble.item()),
+                "spread": float(spread.item()),
+            }
+
         return {
             "lr_prob": lr_prob,
             "xgb_prob": xgb_prob,
-            "ensemble_prob": 0.3 * lr_prob + 0.7 * xgb_prob,
+            "ensemble_prob": ensemble,
             "spread": spread,
         }
 
