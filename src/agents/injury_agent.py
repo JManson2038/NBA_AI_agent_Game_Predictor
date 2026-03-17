@@ -126,7 +126,7 @@ class InjuryAgent:
         tier = score_to_tier(score)
         lo, hi = TIER_ELO_RANGE.get(tier, (10, 25))
         elo_penalty = round(lo + score * (hi - lo), 1)
-        return tier, elo_penalty
+        return tier, elo_penalty, score
 
     def _get_questionable_mult(self):
         """Sample questionable discount from range for realism."""
@@ -136,20 +136,15 @@ class InjuryAgent:
     # ── Core computation ─────────────────────────────────────────
 
     def compute_team_impact(self, team_abbr):
-        """
-        Compute total Elo penalty for a team based on injuries.
-
-        Returns:
-            total_penalty: float (Elo points to subtract)
-            details:       list of per-player dicts
-        """
         team_abbr = team_abbr.upper()
         team_injuries = self.injuries.get(team_abbr, {})
 
         if not team_injuries:
-            return 0.0, []
+            return 0.0, [], 0.0,"None"
 
         total_penalty = 0.0
+        best_out_score = 0.0
+        best_out_tier = "None"
         details = []
 
         for player_name, status in team_injuries.items():
@@ -166,18 +161,23 @@ class InjuryAgent:
             record = self._find_player(player_name, team_abbr)
 
             if record:
-                tier, base_penalty = self._classify_tier(record)
+                tier, base_penalty, player_score = self._classify_tier(record)
                 mpg = round(record.get("MIN", 0), 1)
                 ppg = round(record.get("PTS", 0), 1)
                 usg = round((record.get("USG_PCT", 0) or 0) * 100, 1)
                 source = "stats"
+                if player_score > best_out_score:
+                    best_out_score = round(player_score, 3)
+                    best_out_tier = tier
             else:
                 # Unknown player — default to Starter tier
                 tier = "Starter"
                 base_penalty = 35.0
                 mpg, ppg, usg = 0.0, 0.0, 0.0
                 source = "default"
-
+                
+            
+            
             penalty = round(base_penalty * mult, 1)
             total_penalty += penalty
 
@@ -195,8 +195,18 @@ class InjuryAgent:
             })
 
         # Phase 3: Hard cap at ELO_CAP
-        if total_penalty > ELO_CAP:
-            scale = ELO_CAP / total_penalty
+        # Dynamic cap based on best missing player
+        tier_caps = {
+            "Franchise":    200,
+            "Star":         180,
+            "Key Rotation": 150,
+            "Bench":        100,
+            "Two-Way":       90,
+            "None":          90,
+        }
+        dynamic_cap = tier_caps.get(best_out_tier, ELO_CAP)
+        if total_penalty > dynamic_cap:
+            scale = dynamic_cap / total_penalty
             for d in details:
                 d["elo_penalty"] = round(d["elo_penalty"] * scale, 1)
             total_penalty = ELO_CAP
@@ -205,13 +215,13 @@ class InjuryAgent:
         details = [d for d in details if d.get("player") != "-- CAP APPLIED --"]
         details.sort(key=lambda x: -x["elo_penalty"])
 
-        return round(total_penalty, 1), details
+        return round(total_penalty, 1), details,best_out_score, best_out_tier
 
     def get_adjusted_elo(self, team_abbr, base_elo):
         """Apply calibrated injury penalty to Elo."""
-        penalty, details = self.compute_team_impact(team_abbr)
+        penalty, details, best_out_score, best_out_tier = self.compute_team_impact(team_abbr)
         adjusted = round(base_elo - penalty, 1)
-        return adjusted, penalty, details
+        return adjusted, penalty, details, best_out_score, best_out_tier
 
     def explain(self, home_abbr, away_abbr):
         """Print injury report for both teams."""
@@ -219,7 +229,7 @@ class InjuryAgent:
         print("  " + "─" * 65)
 
         for team, label in [(home_abbr, "HOME"), (away_abbr, "AWAY")]:
-            penalty, details = self.compute_team_impact(team)
+            penalty, details,_,_ = self.compute_team_impact(team)
 
             if not details:
                 print(f"  {label} {team}: No injuries")

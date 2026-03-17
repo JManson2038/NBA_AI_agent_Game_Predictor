@@ -147,7 +147,10 @@ class DataAgent:
     def get_feature_columns(self, df: pd.DataFrame) -> list:
         rolling_cols = [c for c in df.columns if "ROLL_" in c]
         rest_cols = ["HOME_REST_DAYS", "AWAY_REST_DAYS"]
-        return rolling_cols + rest_cols
+        injury_cols = [c for c in ["HOME_BEST_OUT_SCORE", "AWAY_BEST_OUT_SCORE", 
+                       "BEST_OUT_SCORE_DIFF", "HOME_BEST_OUT_TIER", 
+                       "AWAY_BEST_OUT_TIER"] if c in df.columns]
+        return rolling_cols + rest_cols + injury_cols
 
     def run(self, force=False) -> pd.DataFrame:
         game_logs = self.fetch_game_logs(force=force)

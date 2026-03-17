@@ -97,13 +97,19 @@ class Orchestrator:
         base_away_elo = self.strength_agent.get_elo(away_abbr)
 
         # ── Injury-adjusted Elo ──
-        adj_home_elo, home_impact, home_details = self.injury_agent.get_adjusted_elo(
+        adj_home_elo, home_impact, home_details, home_best_score, home_best_tier = self.injury_agent.get_adjusted_elo(
             home_abbr, base_home_elo
         )
-        adj_away_elo, away_impact, away_details = self.injury_agent.get_adjusted_elo(
+        adj_away_elo, away_impact, away_details, away_best_score, away_best_tier = self.injury_agent.get_adjusted_elo(
             away_abbr, base_away_elo
         )
 
+        tier_map = {"Franchise": 4, "Star": 3, "Key Rotation": 2, "Bench": 1, "Two-Way": 0.5, "None": 0}
+        row["HOME_BEST_OUT_SCORE"] = home_best_score
+        row["AWAY_BEST_OUT_SCORE"] = away_best_score
+        row["BEST_OUT_SCORE_DIFF"] = home_best_score - away_best_score
+        row["HOME_BEST_OUT_TIER"] = tier_map.get(home_best_tier, 0)
+        row["AWAY_BEST_OUT_TIER"] = tier_map.get(away_best_tier, 0)
         row["HOME_ELO"] = adj_home_elo
         row["AWAY_ELO"] = adj_away_elo
         row["ELO_DIFF"] = adj_home_elo - adj_away_elo
