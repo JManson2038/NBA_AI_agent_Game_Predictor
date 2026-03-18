@@ -194,7 +194,7 @@ class InjuryAgent:
                 "source":       source,
             })
 
-        # Phase 3: Hard cap at ELO_CAP
+        # Phase 3:
         # Dynamic cap based on best missing player
         tier_caps = {
             "Franchise":    200,

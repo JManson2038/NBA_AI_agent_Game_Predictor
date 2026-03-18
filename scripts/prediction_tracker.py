@@ -144,7 +144,7 @@ def show_summary(min_confidence=None):
         result = "WIN" if e["correct"] else "LOSS"
         print(
             f"  {e['date']:<12} {matchup:<18} {e['predicted_winner']:<6} "
-            f"{e['home_win_prob']:>5.1%}  {e['confidence']:<8} {result} ({e['units']:+.2f}u)"
+            f"{e['win_probability']:>5.1%}  {e['confidence']:<8} {result} ({e['units']:+.02f}u)"
         )
 
 
@@ -165,7 +165,7 @@ def show_pending():
         matchup = f"{e['away']}@{e['home']}"
         print(
             f"  {e['date']:<12} {matchup:<18} {e['predicted_winner']:<6} "
-            f"{e['home_win_prob']:>5.1%}  {e['confidence']}"
+            f"{e['win_probability']:>5.1%}  {e['confidence']}"
         )
     print(f"\n  Record with: python prediction_tracker.py --result HOME AWAY <1=home wins, 0=away wins>")
 
