@@ -211,6 +211,12 @@ class InjuryAgent:
             total_penalty += d["elo_penalty"]
         details = [d for d in details if d.get("player") != "-- CAP APPLIED --"]
         details.sort(key=lambda x: -x["elo_penalty"])
+        if total_penalty > 250:
+            scale = 250 / total_penalty
+            for d in details:
+                d["elo_penalty"] = round(d["elo_penalty"] * scale, 1)
+            total_penalty = 250
+
 
         return round(total_penalty, 1), details,best_out_score, best_out_tier
 
