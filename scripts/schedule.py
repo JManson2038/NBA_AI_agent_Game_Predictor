@@ -229,6 +229,10 @@ def fetch_todays_games_live(game_date=None):
                 "time":      g.get("gameStatusText", "TBD").strip(),
                 "status_id": g.get("gameStatus", 1),
             })
+        if result and all(g["status_id"] == 3 for g in result):
+            print("  CDN showing stale data, skipping...")
+            return []
+
         return result
     except Exception as e:
         print(f"  Live CDN failed: {e}")

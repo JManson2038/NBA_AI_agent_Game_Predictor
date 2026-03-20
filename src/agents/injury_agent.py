@@ -195,23 +195,20 @@ class InjuryAgent:
             })
 
         # Phase 3:
-        # Dynamic cap based on best missing player
-        tier_caps = {
-            "Franchise":    200,
-            "Star":         180,
-            "Key Rotation": 150,
-            "Bench":        100,
-            "Two-Way":       90,
-            "None":          90,
+        # Weight penalties by tier — stars hit harder, bench matters less
+        tier_weights = {
+            "Franchise":    1.5,
+            "Star":         1.3,
+            "Key Rotation": 1.1,
+            "Starter":      1.0,
+            "Bench":        0.7,
+            "Two-Way":      0.5,
         }
-        dynamic_cap = tier_caps.get(best_out_tier, ELO_CAP)
-        if total_penalty > dynamic_cap:
-            scale = dynamic_cap / total_penalty
-            for d in details:
-                d["elo_penalty"] = round(d["elo_penalty"] * scale, 1)
-            total_penalty = ELO_CAP
-            details.append({"player": "-- CAP APPLIED --", "elo_penalty": 0})
-
+        total_penalty = 0.0
+        for d in details:
+            weight = tier_weights.get(d["tier"], 0.7)
+            d["elo_penalty"] = round(d["elo_penalty"] * weight, 1)
+            total_penalty += d["elo_penalty"]
         details = [d for d in details if d.get("player") != "-- CAP APPLIED --"]
         details.sort(key=lambda x: -x["elo_penalty"])
 
