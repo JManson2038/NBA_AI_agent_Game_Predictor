@@ -183,7 +183,7 @@ def run_model_b(test_df, feature_cols, prediction_agent, confidence_agent, stren
 
 def run_model_c(test_df, feature_cols, prediction_agent, confidence_agent):
     """Model C — Phase 3 calibrated tiered injury model."""
-    from injury_agent import InjuryAgent
+    from src.agents.injury_agent import InjuryAgent
     injury_agent = InjuryAgent()
 
     results = []

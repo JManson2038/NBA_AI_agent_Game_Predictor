@@ -18,15 +18,23 @@ ALL_TEAMS = [
 ]
 
 
-def load_player_cache(season="2024-25"):
+def load_player_cache():
     """Load all player stats from cache."""
-    cache_file = Path(f"cache/player_stats_{season}.json")
-    if not cache_file.exists():
-        print(f"No player stats cache found for {season}.")
-        print("Run: python train_player_nn.py  (without --team) to fetch and train first.")
-        return []
-    with open(cache_file) as f:
-        return json.load(f)
+    all_players = []
+    for season in ["2024-25", "2025-26"]:
+        cache_file = Path(f"cache/player_stats_{season}.json")
+        if cache_file.exists():
+            with open(cache_file) as f:
+                all_players += json.load(f)
+
+    # Deduplicate: keep the entry with higher MIN for each player
+    best = {}
+    for p in all_players:
+        pid = p.get("PLAYER_ID")
+        if pid not in best or p.get("MIN", 0) > best[pid].get("MIN", 0):
+            best[pid] = p
+
+    return list(best.values())
 
 
 def get_team_players(all_players, team_abbr):
@@ -59,7 +67,7 @@ def show_one_team(nn, all_players, team_abbr):
 
 def show_by_tier(nn, all_players, tier_filter):
     # Print all players league-wide matching a specific tier
-    from player_value_nn import score_to_tier
+    from src.models.player_value_nn import score_to_tier
 
     print(f"\n  ALL PLAYERS — Tier: {tier_filter}")
     print("  " + "─" * 70)

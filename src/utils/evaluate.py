@@ -8,9 +8,7 @@ from sklearn.metrics import accuracy_score, log_loss, brier_score_loss
 
 
 def evaluate_predictions(results):
-    """
-    Evaluate a list of prediction results from the Orchestrator.
-    """
+
     valid = [r for r in results if r.get("actual_home_win", -1) in (0, 1)]
 
     if not valid:
@@ -55,7 +53,7 @@ def evaluate_predictions(results):
         else:
             print("    " + tier.ljust(8) + ": N/A")
 
-    # ── Calibration (expected vs actual) ──
+    # Calibration (expected vs actual) 
     print("")
     print("  CALIBRATION (predicted prob vs actual win rate):")
     buckets = [(0.0, 0.35), (0.35, 0.45), (0.45, 0.55), (0.55, 0.65), (0.65, 0.75), (0.75, 1.0)]
@@ -71,7 +69,7 @@ def evaluate_predictions(results):
                   + "  actual=" + str(round(actual, 3))
                   + "  n=" + str(int(mask.sum())) + marker)
 
-    # ── Model Conflict Analysis ──
+    # Model Conflict Analysis
     conflict_games = [r for r in valid
                       if r.get("confidence_breakdown", {}).get("models_conflict", False)]
     agree_games = [r for r in valid

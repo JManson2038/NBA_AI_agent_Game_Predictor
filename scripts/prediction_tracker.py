@@ -28,7 +28,7 @@ def save_log(log):
 def log_prediction(home, away):
     """Run a prediction and save it with full context."""
     from main import load_pipeline
-    from orchestrator import format_prediction
+    from src.agents.orchestrator import format_prediction
 
     orch, dataset, feature_cols, strength = load_pipeline()
     pred = orch.predict_matchup(home, away, dataset, feature_cols)

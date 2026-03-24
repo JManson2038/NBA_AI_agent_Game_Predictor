@@ -54,11 +54,11 @@ def fetch_with_retry(endpoint_fn, retries=3, delay=5):
 
 # ── Tier definitions (score thresholds) ──────────────────────────
 TIERS = {
-    "Franchise":    (0.48, 1.00),   # Top 1-2 players, MVP-caliber (SGA, Tatum, LeBron)
-    "Star":         (0.38, 0.48),   # Clear starter, high usage
-    "Key Rotation": (0.28, 0.38),   # Solid starter or key bench piece
-    "Bench":        (0.14, 0.28),   # Regular bench contributor
-    "Two-Way":      (0.00, 0.14),   # Fringe roster / two-way contract
+    "Franchise":    (0.49, 1.00),   # Top 1-2 players, MVP-caliber (SGA, Tatum, LeBron)
+    "Star":         (0.40, 0.49),   # Clear starter, high usage
+    "Key Rotation": (0.29, 0.40),   # Solid starter or key bench piece
+    "Bench":        (0.15, 0.29),   # Regular bench contributor
+    "Two-Way":      (0.00, 0.15),   # Fringe roster / two-way contract
 }
 TIER_ELO_RANGE = {
     "Franchise":    (90, 120),

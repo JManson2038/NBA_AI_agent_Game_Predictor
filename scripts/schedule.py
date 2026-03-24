@@ -501,7 +501,7 @@ def print_prediction_summary(game, pred):
     away_pen = inj.get("away", {}).get("impact", 0)
     inj_flag = ""
     if home_pen > 30 or away_pen > 30:
-        inj_flag = f"  [INJ: -{round(home_pen)}H/-{round(away_pen)}A]"
+        inj_flag = f"  [INJ: -{round(away_pen)} Away/ -{round(home_pen)} Home]"
 
     print(
         f"  {game['away']:<4} @ {game['home']:<4}  "

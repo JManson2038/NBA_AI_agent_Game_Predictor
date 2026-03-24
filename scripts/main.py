@@ -72,7 +72,7 @@ def show_ratings():
 def backtest_season(season):
     """Run predictions on an entire season and evaluate."""
     orch, dataset, feature_cols, strength = load_pipeline()
-    from evaluate import evaluate_predictions
+    from src.utils.evaluate import evaluate_predictions
 
     test_df = dataset[dataset["SEASON"] == season].dropna(subset=feature_cols)
     if test_df.empty:
