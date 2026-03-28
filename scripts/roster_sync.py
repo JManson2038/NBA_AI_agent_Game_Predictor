@@ -30,7 +30,7 @@ CACHE_DIR = Path("cache")
 INJURY_FILE = Path("injuries.json")
 ROSTER_CACHE = CACHE_DIR / "rosters.json"
 SYNC_LOG = CACHE_DIR / "roster_sync.log"
-SEASON = "2024-25"
+SEASON = "2025-26"
 STALE_DAYS = 3  # Warn if cache older than this
 
 ALL_TEAMS = [
