@@ -89,22 +89,20 @@ python run.py schedule
 
 The `PlayerValueNN` scores every player 0-1 using box score stats and win impact metrics (50/50 weighted), then maps them to tiers used for injury Elo penalties:
 
-| Tier | Score | Elo Penalty | Example Players |
-|------|-------|-------------|-----------------|
-| Franchise | 0.50+ | −90 to −120 | SGA, Luka, Tatum |
-| Star | 0.40–0.50 | −60 to −85 | Jaylen Brown, Bam Adebayo |
-| Key Rotation | 0.28–0.40 | −30 to −55 | Jrue Holiday, Al Horford |
-| Bench | 0.14–0.28 | −10 to −25 | Role players |
-| Two-Way | 0.00–0.14 | −5 to −10 | Fringe roster |
+| Tier | Score | Weight | Example Players |
+|------|-------|--------|-----------------|
+| Franchise | 0.49+ | 1.5x | SGA, Jokic, Giannis, Luka |
+| Star | 0.40–0.49 | 1.3x | Tatum, Kawhi, Wembanyama, Curry |
+| Key Rotation | 0.29–0.40 | 1.1x | Jrue Holiday, Mikal Bridges |
+| Bench | 0.15–0.29 | 0.7x | Role players |
+| Two-Way | 0.00–0.15 | 0.5x | Fringe roster |
 
-**Hard cap:** No team loses more than 180 Elo from injuries regardless of how many players are out.
-
+Penalties are tier-weighted — losing a Franchise player hurts 1.5x more than losing a Key Rotation player. Safety net cap at 250 Elo maximum per team. XGBoost also learns from `BEST_OUT_SCORE_DIFF`, which tracks the quality gap between each team's best missing player (4th in feature importance).
 ```bash
 python run.py train-nn --team OKC       # one team's rankings
 python run.py train-nn --tier Franchise  # all franchise players league-wide
 python run.py train-nn --tier Star       # all stars league-wide
 ```
-
 ---
 
 ## All Commands
