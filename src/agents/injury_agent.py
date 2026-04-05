@@ -1,4 +1,5 @@
 
+import unicodedata
 import json
 import numpy as np
 from pathlib import Path
@@ -27,6 +28,10 @@ STATUS_MULT = {
     "available":    0.0,
 }
 
+def _normalize_name(name):
+    """Strip accents: Dončić -> Doncic"""
+    nfkd = unicodedata.normalize('NFKD', name)
+    return ''.join(c for c in nfkd if not unicodedata.combining(c)).lower()
 
 class InjuryAgent:
     """
@@ -79,24 +84,33 @@ class InjuryAgent:
         if team_abbr in self._player_cache:
             return self._player_cache[team_abbr]
 
-        cache_file = CACHE_DIR / f"player_stats_{self.season}.json"
-        if cache_file.exists():
-            with open(cache_file) as f:
-                all_players = json.load(f)
-            team_players = [
-                p for p in all_players
-                if p.get("TEAM_ABBREVIATION", "") == team_abbr
-            ]
-            self._player_cache[team_abbr] = team_players
-            return team_players
-        return []
+        all_players = []
+        for season in ["2024-25", "2025-26"]:
+            cache_file = CACHE_DIR / f"player_stats_{season}.json"
+            if cache_file.exists():
+                with open(cache_file) as f:
+                    all_players += json.load(f)
+
+        # Dedup: keep higher minutes per player
+        best = {}
+        for p in all_players:
+            pid = p.get("PLAYER_ID")
+            if pid not in best or p.get("MIN", 0) > best[pid].get("MIN", 0):
+                best[pid] = p
+
+        team_players = [
+            p for p in best.values()
+            if p.get("TEAM_ABBREVIATION", "") == team_abbr
+        ]
+        self._player_cache[team_abbr] = team_players
+        return team_players
 
     def _find_player(self, player_name, team_abbr):
         players = self._get_team_players(team_abbr)
         # Exact match
         for p in players:
             name = p.get("PLAYER_NAME", p.get("PLAYER", ""))
-            if name.lower() == player_name.lower():
+            if _normalize_name(name) == _normalize_name(player_name):
                 return p
         # Last name match
         last = player_name.split()[-1].lower()
