@@ -88,11 +88,11 @@ python run.py summary
 | 2026-04-03 | 8-1 | +6.27 | +69.7% |
 | 2026-04-04 | 2-1 | +0.82 | +27.3% |
 | 2026-04-05 | 8-3 | +4.27 | +38.8% |
-| **Total** | **153-75** | **+64.57** | **+28.3%** |
+| 2026-04-06 | 4-1 | +2.64 | +52.7% |
+| **Total** | **157-76** | **+67.21** | **+28.8%** |
 
-*High confidence: 68/86 (79.1%) | +41.01u | +47.7% ROI*
-*Medium confidence: profitable across 100+ picks*
-*All tiers are profitable. 228 games tracked.*
+*High: 70/88 (79.5%) | +42.83u | +48.7% ROI*
+*233 games tracked.*
 ---
 
 ## Setup
