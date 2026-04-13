@@ -1,89 +1,93 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-04-10 10:52",
-  "ATL": {},
+  "_last_updated": "2026-04-12 12:36",
+  "ATL": {
+    "Onyeka Okongwu": "questionable",
+    "Jalen Johnson": "questionable",
+    "CJ McCollum": "questionable",
+    "Jonathan Kuminga": "questionable",
+    "Dyson Daniels": "questionable",
+    "Nickeil Alexander-Walker": "questionable"
+  },
   "BOS": {
-    "Jaylen Brown": "out"
+    "Hugo Gonzalez": "questionable",
+    "Nikola Vucevic": "questionable",
+    "Sam Hauser": "questionable",
+    "Payton Pritchard": "questionable"
   },
   "BKN": {
-    "Nolan Traore": "out",
-    "Josh Minott": "out"
+    "Ochai Agbaji": "questionable",
+    "Nolan Traore": "questionable"
   },
   "CHA": {
     "Coby White": "questionable"
   },
   "CHI": {
-    "Isaac Okoro": "out",
-    "Guerschon Yabusele": "questionable"
+    "Collin Sexton": "questionable",
+    "Patrick Williams": "questionable",
+    "Lachlan Olbrich": "questionable"
   },
   "CLE": {},
-  "DAL": {
-    "Brandon Williams": "questionable",
-    "Naji Marshall": "questionable",
-    "P.J. Washington": "questionable",
-    "Cooper Flagg": "questionable"
-  },
+  "DAL": {},
   "DEN": {
-    "Nikola Jokic": "questionable",
-    "Jamal Murray": "questionable",
-    "Aaron Gordon": "questionable"
+    "Nikola Jokic": "questionable"
   },
-  "DET": {
-    "Kevin Huerter": "questionable"
-  },
+  "DET": {},
   "GSW": {
-    "Will Richard": "out",
-    "Kristaps Porzingis": "out",
-    "Stephen Curry": "out",
-    "Gui Santos": "out",
-    "LJ Cryer": "questionable"
+    "Draymond Green": "questionable",
+    "Will Richard": "questionable"
   },
   "HOU": {},
   "IND": {
-    "Kobe Brown": "out"
+    "Jarace Walker": "questionable",
+    "Kobe Brown": "questionable"
   },
-  "LAC": {},
+  "LAC": {
+    "Kawhi Leonard": "questionable"
+  },
   "LAL": {
-    "Jaxson Hayes": "out"
+    "LeBron James": "questionable"
   },
   "MEM": {
-    "Olivier-Maxence Prosper": "questionable",
-    "Walter Clayton Jr.": "questionable"
+    "Adama Bal": "questionable",
+    "Walter Clayton Jr.": "questionable",
+    "Olivier-Maxence Prosper": "questionable"
   },
   "MIA": {
-    "Dru Smith": "out"
+    "Simone Fontecchio": "questionable",
+    "Norman Powell": "questionable"
   },
-  "MIL": {},
-  "MIN": {
-    "Ayo Dosunmu": "questionable",
-    "Bones Hyland": "questionable",
-    "Julius Randle": "questionable"
+  "MIL": {
+    "Pete Nance": "questionable",
+    "Gary Harris": "questionable"
   },
-  "NOP": {
-    "Saddiq Bey": "questionable",
-    "Herbert Jones": "questionable"
-  },
-  "NYK": {
-    "Tyler Kolek": "out"
-  },
+  "MIN": {},
+  "NOP": {},
+  "NYK": {},
   "OKC": {},
   "ORL": {},
   "PHI": {},
   "PHX": {
+    "Jordan Goodwin": "questionable",
+    "Collin Gillespie": "questionable",
     "Jalen Green": "questionable"
   },
-  "POR": {},
+  "POR": {
+    "Matisse Thybulle": "questionable"
+  },
   "SAC": {},
   "SAS": {
+    "Devin Vassell": "questionable",
     "Stephon Castle": "questionable",
     "Victor Wembanyama": "questionable"
   },
   "TOR": {
-    "Trayce Jackson-Davis": "out"
+    "Collin Murray-Boyles": "questionable",
+    "RJ Barrett": "questionable",
+    "Trayce Jackson-Davis": "questionable"
   },
   "UTA": {},
   "WAS": {
-    "Jaden Hardy": "out",
-    "Bilal Coulibaly": "out"
+    "Anthony Gill": "questionable"
   }
 }
