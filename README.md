@@ -97,6 +97,17 @@ python run.py summary
 | **Total** | **199-87** | **+94.39** | **+33.0%** |
 
 *High: 88/108 (81.5%) | +58.74u | +54.4% ROI*
+
+## Playoff Predictions
+
+*Tracking begins with the 2026 NBA Play-in Tournament and the Playoff.*
+
+| Date | Round | Matchup | Pick | Prob | Conf | Result |
+|------|-------|---------|------|------|------|--------|
+| 2026-04-13 | Play-In | MIA@CHA | CHA | 70.5% | Medium | WIN (+0.91u) |
+| 2026-04-13 | Play-In | POR@PHX | POR | 56.1% | Low | WIN (+0.91u) |
+
+**Playoff Record:** 2-0 | +1.82u
 ---
 
 ## Setup
