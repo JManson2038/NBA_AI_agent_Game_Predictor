@@ -104,10 +104,12 @@ python run.py summary
 
 | Date | Round | Matchup | Pick | Prob | Conf | Result |
 |------|-------|---------|------|------|------|--------|
-| 2026-04-13 | Play-In | MIA@CHA | CHA | 70.5% | Medium | WIN (+0.91u) |
-| 2026-04-13 | Play-In | POR@PHX | POR | 56.1% | Low | WIN (+0.91u) |
+| 2026-04-14 | Play-In | MIA@CHA | CHA | 70.5% | Medium | WIN (+0.91u) |
+| 2026-04-14 | Play-In | POR@PHX | POR | 56.1% | Low | WIN (+0.91u) |
+| 2026-04-15 | Play-In | ORL@PHI | ORL | 50.3% | Low | LOSS (-1.00u) |
+| 2026-04-15 | Play-In | GSW@LAC | LAC | 58.9% | Medium | LOSS (-1.00u) |
 
-**Playoff Record:** 2-0 | +1.82u
+**Playoff Record:** 2-2 | -0.18u
 ---
 
 ## Setup
