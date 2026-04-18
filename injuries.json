@@ -1,12 +1,7 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-04-15 11:22",
-  "ATL": {
-    "CJ McCollum": "out",
-    "Jonathan Kuminga": "out",
-    "Dyson Daniels": "out",
-    "Nickeil Alexander-Walker": "out"
-  },
+  "_last_updated": "2026-04-18 11:21",
+  "ATL": {},
   "BOS": {
     "Derrick White": "out",
     "Neemias Queta": "questionable",
@@ -36,12 +31,8 @@
   "NYK": {},
   "OKC": {},
   "ORL": {},
-  "PHI": {
-    "Trendon Watford": "questionable"
-  },
-  "PHX": {
-    "Grayson Allen": "out"
-  },
+  "PHI": {},
+  "PHX": {},
   "POR": {},
   "SAC": {},
   "SAS": {

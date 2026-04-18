@@ -108,8 +108,10 @@ python run.py summary
 | 2026-04-14 | Play-In | POR@PHX | POR | 56.1% | Low | WIN (+0.91u) |
 | 2026-04-15 | Play-In | ORL@PHI | ORL | 50.3% | Low | LOSS (-1.00u) |
 | 2026-04-15 | Play-In | GSW@LAC | LAC | 58.9% | Medium | LOSS (-1.00u) |
+| 2026-04-17 | Play-In | CHA@ORL | ORL | 62.8% | Medium | WIN (+0.91u) |
+| 2026-04-17 | Play-In | GSW@PHX | PHX | 54.5% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 2-2 | -0.18u
+**Playoff Record:** 4-2 | +1.64u
 ---
 
 ## Setup
