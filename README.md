@@ -110,8 +110,12 @@ python run.py summary
 | 2026-04-15 | Play-In | GSW@LAC | LAC | 58.9% | Medium | LOSS (-1.00u) |
 | 2026-04-17 | Play-In | CHA@ORL | ORL | 62.8% | Medium | WIN (+0.91u) |
 | 2026-04-17 | Play-In | GSW@PHX | PHX | 54.5% | Medium | WIN (+0.91u) |
+| 2026-04-18 | R1 G1 | TOR@CLE | CLE | 70.7% | Medium | WIN (+0.91u) |
+| 2026-04-18 | R1 G1 | MIN@DEN | DEN | 59.3% | Low | WIN (+0.91u) |
+| 2026-04-18 | R1 G1 | ATL@NYK | NYK | 71.6% | Medium | WIN (+0.91u) |
+| 2026-04-18 | R1 G1 | HOU@LAL | LAL | 67.2% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 4-2 | +1.64u
+**Playoff Record:** 8-2 | +5.27u
 ---
 
 ## Setup
