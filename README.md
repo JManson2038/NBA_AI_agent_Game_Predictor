@@ -124,8 +124,10 @@ python run.py summary
 | 2026-04-21 | R1 G2 | PHI@BOS | BOS | 73.4% | High | LOSS (-1.00u) |
 | 2026-04-21 | R1 G2 | POR@SAS | SAS | 60.6% | Medium | LOSS (-1.00u) |
 | 2026-04-21 | R1 G2 | HOU@LAL | LAL | 67.2% | Medium | WIN (+0.91u) |
+| 2026-04-22 | R1 G2 | ORL@DET | DET | 69.4% | Medium | WIN (+0.91u) |
+| 2026-04-22 | R1 G2 | PHX@OKC | OKC | 78.8% | High | WIN (+0.91u) |
 
-**Playoff Record:** 12-8 | +3.09u
+**Playoff Record:** 14-8 | +4.91u
 ---
 
 ## Setup

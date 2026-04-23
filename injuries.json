@@ -1,6 +1,6 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-04-18 11:21",
+  "_last_updated": "2026-04-22 13:23",
   "ATL": {},
   "BOS": {},
   "BKN": {},
@@ -14,7 +14,9 @@
   "HOU": {},
   "IND": {},
   "LAC": {},
-  "LAL": {},
+  "LAL": {
+    "Jake LaRavia": "questionable"
+  },
   "MEM": {},
   "MIA": {},
   "MIL": {},
@@ -24,15 +26,17 @@
   "OKC": {},
   "ORL": {},
   "PHI": {},
-  "PHX": {},
+  "PHX": {
+    "Jordan Goodwin": "questionable"
+  },
   "POR": {},
   "SAC": {},
   "SAS": {
-    "Dylan Harper": "questionable"
+    "Victor Wembanyama": "questionable",
+    "Jordan McLaughlin": "out",
+    "Harrison Barnes": "questionable"
   },
-  "TOR": {
-    "Immanuel Quickley": "questionable"
-  },
+  "TOR": {},
   "UTA": {},
   "WAS": {}
 }
