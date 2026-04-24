@@ -126,8 +126,11 @@ python run.py summary
 | 2026-04-21 | R1 G2 | HOU@LAL | LAL | 67.2% | Medium | WIN (+0.91u) |
 | 2026-04-22 | R1 G2 | ORL@DET | DET | 69.4% | Medium | WIN (+0.91u) |
 | 2026-04-22 | R1 G2 | PHX@OKC | OKC | 78.8% | High | WIN (+0.91u) |
+| 2026-04-23 | R1 G3 | NYK@ATL | NYK | 54.9% | Medium | LOSS (-1.00u) |
+| 2026-04-23 | R1 G3 | CLE@TOR | TOR | 50.7% | Medium | WIN (+0.91u) |
+| 2026-04-23 | R1 G3 | DEN@MIN | MIN | 50.9% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 14-8 | +4.91u
+**Playoff Record:** 16-9 | +5.73u
 ---
 
 ## Setup
