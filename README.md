@@ -149,8 +149,11 @@ python run.py summary
 | 2026-04-29 | R1 G6 | ORL@DET | DET | 69.4% | Medium | WIN (+0.91u) |
 | 2026-04-29 | R1 G5 | TOR@CLE | CLE | 63.4% | Medium | WIN (+0.91u) |
 | 2026-04-29 | R1 G5 | HOU@LAL | LAL | 51.2% | Medium | LOSS (-1.00u) |
+| 2026-04-30 | R1 G6 | NYK@ATL | NYK | 54.9% | Medium | WIN (+0.91u) |
+| 2026-04-30 | R1 G6 | BOS@PHI | BOS | 67.6% | Medium | LOSS (-1.00u) |
+| 2026-04-30 | R1 G6 | DEN@MIN | MIN | 50.9% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 29-16 | +9.55u
+**Playoff Record:** 31-17 | +10.37u
 ---
 
 ## Setup
