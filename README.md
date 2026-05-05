@@ -156,7 +156,10 @@ python run.py summary
 | 2026-05-01 | R1 G6 | CLE@TOR | TOR | 50.7% | Medium | WIN (+0.91u) |
 | 2026-05-01 | R1 G6 | LAL@HOU | LAL | 50.3% | Medium | WIN (+0.91u) |
 | 2026-05-02 | R1 G7 | PHI@BOS | BOS | 73.4% | High | LOSS (-1.00u) |
-| 2026-05-03 | R1 G7 | TOR@CLE | CLE | 63.4% | Medium | WIN (+0.91)|	
+| 2026-05-03 | R1 G7 | TOR@CLE | CLE | 63.4% | Medium | WIN (+0.91)|
+| 2026-05-04 | R1 G? | PHI@NYK | NYK | ?% | Medium | WIN (+0.91u) |
+| 2026-05-04 | R1 G? | MIN@SAS | SAS | ?% | Medium | LOSS (-1.00u) |
+	
 **Playoff Record:** 34-18 | +12.09u
 ---
 
