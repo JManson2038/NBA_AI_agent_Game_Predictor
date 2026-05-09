@@ -156,16 +156,17 @@ python run.py summary
 | 2026-05-01 | R1 G6 | CLE@TOR | TOR | 50.7% | Medium | WIN (+0.91u) |
 | 2026-05-01 | R1 G6 | LAL@HOU | LAL | 50.3% | Medium | WIN (+0.91u) |
 | 2026-05-02 | R1 G7 | PHI@BOS | BOS | 73.4% | High | LOSS (-1.00u) |
-| 2026-05-03 | R1 G7 | TOR@CLE | CLE | 63.4% | Medium | WIN (+0.91)|
-| 2026-05-04 | R1 G7 | PHI@NYK | NYK | 75.2%| Medium | WIN (+0.91u) |
+| 2026-05-03 | R1 G7 | TOR@CLE | CLE | 63.4% | Medium | WIN (+0.91) |
+| 2026-05-04 | R1 G7 | PHI@NYK | NYK | 75.2% | Medium | WIN (+0.91u) |
 | 2026-05-04 | R1 G7 | MIN@SAS | SAS | 59.4% | Medium | LOSS (-1.00u) |
 | 2026-05-05 | R2 G1 | CLE@DET | DET | 63.2% | Medium | WIN (+0.91u) |
 | 2026-05-05 | R2 G1 | LAL@OKC | OKC | 75.1% | Medium | WIN (+0.91u) |
 | 2026-05-06 | R2 G2 | PHI@NYK | NYK | 75.2% | Medium | WIN (+0.91u) |
 | 2026-05-06 | R2 G2 | MIN@SAS | SAS | 59.8% | Medium | WIN (+0.91u) |
+| 2026-05-08 | R2 G4 | NYK@PHI | NYK | 62.1% | Medium | WIN (+0.91u) |
+| 2026-05-08 | R2 G4 | SAS@MIN | MIN | 63.9% | Medium | LOSS (-1.00u) |
 
-**Playoff Record:** 38-18 | +16.58u
----
+**Playoff Record:** 39-19 | +16.49u
 
 ## Setup
 
