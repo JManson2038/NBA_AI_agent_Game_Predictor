@@ -167,8 +167,10 @@ python run.py summary
 | 2026-05-08 | R2 G4 | SAS@MIN | MIN | 63.9% | Medium | LOSS (-1.00u) |
 | 2026-05-09 | R2 G4 | DET@CLE | DET | 59.8% | Low | LOSS (-1.00u) |
 | 2026-05-09 | R2 G4 | OKC@LAL | OKC | 63.0% | Medium | WIN (+0.91u) |
+| 2026-05-11 | R2 | DET@CLE | DET | 59.8% | Low | LOSS (-1.00u) |
+| 2026-05-11 | R2 | OKC@LAL | OKC | 63.0% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 40-20 | +16.40u
+**Playoff Record:** 41-21 | +16.31u
 
 ## Setup
 
