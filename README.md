@@ -174,8 +174,9 @@ python run.py summary
 | 2026-05-15 | R2 G6 | DET@CLE | DET | 59.8% | Low | WIN (+0.91u) |
 | 2026-05-15 | R2 G6 | SAS@MIN | MIN | 63.7% | Medium | LOSS (-1.00u) |
 | 2026-05-17 | R2 G7 | CLE@DET | DET | 63.2% | Medium | LOSS (-1.00u) |
+| 2026-05-18 | WCF G1 | SAS@OKC | OKC | 76.5% | High | LOSS (-1.00u) |
 
-**Playoff Record:** 43-24 | +15.13u
+**Playoff Record:** 43-25 | +14.13u
 
 ## Setup
 
