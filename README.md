@@ -177,8 +177,9 @@ python run.py summary
 | 2026-05-18 | WCF G1 | SAS@OKC | OKC | 76.5% | High | LOSS (-1.00u) |
 | 2026-05-19 | ECF G1 | CLE@NYK | NYK | 66.9% | Medium | WIN (+0.91u) |
 | 2026-05-20 | WCF G2 | SAS@OKC | OKC | 75.3% | Medium | WIN (+0.91u) |
+| 2026-05-21 | ECF G2 | CLE@NYK | NYK | 66.9% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 45-25 | +15.95u
+**Playoff Record:** 46-25 | +16.86u
 
 ## Setup
 
