@@ -186,8 +186,9 @@ python run.py summary
 | 2026-05-28 | WCF G6 | OKC@SAS | OKC | 56.3% | Medium | LOSS (-1.00u) |
 | 2026-05-30 | WCF G7 | SAS@OKC | OKC | 75.4% | Medium | LOSS (-1.00u) |
 | 2026-06-03 | Finals G1 | NYK@SAS | NYK | 56.0% | Medium | WIN (+0.91u) |
+| 2026-06-05 | Finals G2 | NYK@SAS | SAS | 55.6% | Medium | LOSS (-1.00u) |
 
-**Playoff Record:** 49-30 | +14.59u
+**Playoff Record:** 49-31 | +13.59u
 
 ## Setup
 
