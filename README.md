@@ -188,8 +188,9 @@ python run.py summary
 | 2026-06-03 | Finals G1 | NYK@SAS | NYK | 56.0% | Medium | WIN (+0.91u) |
 | 2026-06-05 | Finals G2 | NYK@SAS | SAS | 55.6% | Medium | LOSS (-1.00u) |
 | 2026-06-08 | Finals G3 | SAS@NYK | NYK | 53.3% | Medium | LOSS (-1.00u) |
+| 2026-06-10 | Finals G4 | SAS@NYK | NYK | 53.3% | Medium | WIN (+0.91u) |
 
-**Playoff Record:** 49-32 | +12.59u
+**Playoff Record:** 50-32 | +13.50u
 
 ## Setup
 
