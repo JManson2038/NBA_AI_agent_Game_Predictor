@@ -189,8 +189,19 @@ python run.py summary
 | 2026-06-05 | Finals G2 | NYK@SAS | SAS | 55.6% | Medium | LOSS (-1.00u) |
 | 2026-06-08 | Finals G3 | SAS@NYK | NYK | 53.3% | Medium | LOSS (-1.00u) |
 | 2026-06-10 | Finals G4 | SAS@NYK | NYK | 53.3% | Medium | WIN (+0.91u) |
+| 2026-06-13 | Finals G5 | NYK@SAS | SAS | 55.6% | Medium | LOSS (-1.00u) |
 
-**Playoff Record:** 50-32 | +13.50u
+**Playoff Record:** 50-33 | +12.50u
+
+### Combined Season Total (Regular Season + Playoffs)
+
+| Phase | Record | Win % | Units | ROI |
+|-------|--------|-------|-------|-----|
+| Regular Season | 199-87 | 69.6% | +94.39u | +33.0% |
+| Playoffs | 50-33 | 60.2% | +12.50u | +15.1% |
+| **Combined** | **249-120** | **67.5%** | **+106.89u** | **+29.0%** |
+
+*369 games tracked live from March through the NBA Finals.
 
 ## Setup
 
