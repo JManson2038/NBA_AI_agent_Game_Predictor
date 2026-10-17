@@ -15,6 +15,9 @@ cache/
 *.pkl
 *.pt
 
+# ── Coverage analyzer outputs (videos, csv, summaries) ───────────
+coverage_analyzer/out/
+
 # ── Prediction Logs ──────────────────────────────────────────────
 predictions_log.json
 cache/odds_log.json
