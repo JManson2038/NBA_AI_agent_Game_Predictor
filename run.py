@@ -4,7 +4,7 @@ run.py — Convenience runner for NBA AI Agent Game Predictor
 Usage:
     python run.py schedule              # fetch today's games + predict
     python run.py results               # auto-fill last night's results
-    python run.py results --date 2026-03-04
+    python run.py results --date 2026-10-21
     python run.py summary               # show running ROI
     python run.py preview               # show today's schedule only
     python run.py rankings              # Elo power rankings
@@ -21,7 +21,7 @@ Usage:
     python run.py tracker --summary
     python run.py main --home BOS --away LAL
     python run.py main --games OKC:BOS LAL:GSW MIA:NYK
-    python run.py main --backtest 2024-25
+    python run.py main --backtest 2025-26
 """
 
 import sys
@@ -66,7 +66,7 @@ HELP = """
       --home BOS --away LAL
       --games OKC:BOS LAL:GSW MIA:NYK
       --rankings
-      --backtest 2024-25
+      --backtest 2025-26
 
   TRAINING
     train             Train main LR + XGBoost models
@@ -84,7 +84,7 @@ HELP = """
 
   ANALYSIS
     backtest          Compare Model A / B / C injury systems
-      --season 2023-24
+      --season 2025-26
       --model C
       --min-edge 0.04
       
@@ -97,7 +97,7 @@ HELP = """
   ─────────────────────────────────────────────────────
   Examples:
     python run.py schedule
-    python run.py results --date 2026-03-04
+    python run.py results --date 2026-10-21
     python run.py main --home OKC --away BOS
     python run.py train-nn --tier Franchise
     python run.py clv --summary

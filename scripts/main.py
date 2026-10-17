@@ -94,7 +94,7 @@ Examples:
   python main.py --home BOS --away LAL
   python main.py --games BOS:LAL CHA:DET MIA:UTA
   python main.py --rankings
-  python main.py --backtest 2024-25
+  python main.py --backtest 2025-26
         """,
     )
     parser.add_argument("--home", type=str, help="Home team abbreviation (e.g. BOS)")
@@ -104,7 +104,7 @@ Examples:
         help="Multiple games as HOME:AWAY pairs (e.g. BOS:LAL CHA:DET MIA:UTA)"
     )
     parser.add_argument("--rankings", action="store_true", help="Show Elo power rankings")
-    parser.add_argument("--backtest", type=str, help="Backtest a season (e.g. 2024-25)")
+    parser.add_argument("--backtest", type=str, help="Backtest a season (e.g. 2025-26)")
 
     args = parser.parse_args()
 
