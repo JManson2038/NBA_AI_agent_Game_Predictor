@@ -1,6 +1,6 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-04-22 13:23",
+  "_last_updated": "2026-10-17 00:00",
   "ATL": {},
   "BOS": {},
   "BKN": {},
@@ -14,9 +14,7 @@
   "HOU": {},
   "IND": {},
   "LAC": {},
-  "LAL": {
-    "Jake LaRavia": "questionable"
-  },
+  "LAL": {},
   "MEM": {},
   "MIA": {},
   "MIL": {},
@@ -26,12 +24,10 @@
   "OKC": {},
   "ORL": {},
   "PHI": {},
-  "PHX": {
-  },
+  "PHX": {},
   "POR": {},
   "SAC": {},
-  "SAS": {
-  },
+  "SAS": {},
   "TOR": {},
   "UTA": {},
   "WAS": {}

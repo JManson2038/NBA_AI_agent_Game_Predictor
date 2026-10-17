@@ -42,7 +42,7 @@ python run.py summary
 
 ```
   ══════════════════════════════════════════════════════════
-  NBA SCHEDULE — Thursday, April 3, 2026
+  NBA SCHEDULE — Wednesday, October 21, 2026
   ══════════════════════════════════════════════════════════
 
   IND  @ CHA   Pick: CHA   80.0%  Spread: +14.5  Conf: High (0.907)  [INJ: -213H/-14A]
@@ -54,7 +54,22 @@ python run.py summary
 
 ---
 
-## Live Prediction Record
+## 2026-27 Live Prediction Record
+
+*Tracking begins opening night of the 2026-27 season. Results are auto-filled nightly via `python run.py results`.*
+
+| Date | Record | Units | ROI |
+|------|--------|-------|-----|
+| **Total** | **0-0** | **+0.00** | **0.0%** |
+
+---
+
+## 2025-26 Season Results (Final)
+
+<details>
+<summary>Regular season: 199-87 (+94.39u) | Playoffs: 50-33 (+12.50u) | Combined: 249-120 (+106.89u, +29.0% ROI)</summary>
+
+### Regular Season
 
 | Date | Record | Units | ROI |
 |------|--------|-------|-----|
@@ -98,9 +113,9 @@ python run.py summary
 
 *High: 88/108 (81.5%) | +58.74u | +54.4% ROI*
 
-## Playoff Predictions
+### Playoff Predictions
 
-*Tracking begins with the 2026 NBA Play-in Tournament and the Playoff.*
+*Tracked from the 2026 NBA Play-In Tournament through the Finals.*
 
 | Date | Round | Matchup | Pick | Prob | Conf | Result |
 |------|-------|---------|------|------|------|--------|
@@ -201,7 +216,11 @@ python run.py summary
 | Playoffs | 50-33 | 60.2% | +12.50u | +15.1% |
 | **Combined** | **249-120** | **67.5%** | **+106.89u** | **+29.0%** |
 
-*369 games tracked live from March through the NBA Finals.
+*369 games tracked live from March 2026 through the NBA Finals.*
+
+</details>
+
+---
 
 ## Setup
 
@@ -263,7 +282,7 @@ python run.py train-nn --tier Star       # all stars league-wide
 - **Historical injury features**: `BEST_OUT_SCORE_DIFF` built from 280K player game logs across 11 seasons (4th in XGBoost feature importance)
 - **3-layer API fallback**: Live CDN (fastest) -> ESPN API (any date) -> stats.nba.com (last resort)
 - **Stale data detection**: CDN auto-skips when showing yesterday's games
-- **Live tracked record**: 217+ games with daily auto-filled results and ROI tracking
+- **Live tracked record**: 249-120 (+106.89u) across the 2025-26 season; 2026-27 tracking in progress with daily auto-filled results
 
 ---
 
@@ -291,7 +310,7 @@ Top 5 Feature Importances:
 # Predictions
 python run.py schedule              # today's games + predictions
 python run.py results               # fill last night's results
-python run.py results --date 2026-03-04
+python run.py results --date 2026-10-21
 python run.py summary               # running ROI
 python run.py preview               # schedule only, no predictions
 python run.py main --home BOS --away LAL
