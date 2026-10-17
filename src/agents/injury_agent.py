@@ -46,8 +46,8 @@ class InjuryAgent:
     No manual tagging. No flat universal penalties.
     """
 
-    def __init__(self, season="2025-26"):
-        self.season = season
+    def __init__(self, season=None):
+        self.season = season or config.CURRENT_SEASON
         self.injuries = self._load_injury_file()
         self._player_cache = {}
 
@@ -85,7 +85,7 @@ class InjuryAgent:
             return self._player_cache[team_abbr]
 
         all_players = []
-        for season in ["2024-25", "2025-26"]:
+        for season in ["2025-26", "2026-27"]:
             cache_file = CACHE_DIR / f"player_stats_{season}.json"
             if cache_file.exists():
                 with open(cache_file) as f:

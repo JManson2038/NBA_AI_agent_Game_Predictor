@@ -304,7 +304,7 @@ def print_comparison(results_dict):
 
 def main():
     parser = argparse.ArgumentParser(description="Backtest injury model versions")
-    parser.add_argument("--season", type=str, default="2024-25", help="Season to test")
+    parser.add_argument("--season", type=str, default="2025-26", help="Season to test")
     parser.add_argument("--model", type=str, choices=["A", "B", "C"], help="Run one model only")
     parser.add_argument("--min-edge", type=float, default=0.0, help="Min edge to place a bet")
     args = parser.parse_args()

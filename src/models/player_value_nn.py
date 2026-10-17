@@ -131,7 +131,7 @@ class PlayerDataCollector:
     """Fetches and caches player stats from nba_api."""
 
     def __init__(self, seasons=None):
-        self.seasons = seasons or ["2023-24", "2024-25", "2025-26"]
+        self.seasons = seasons or ["2024-25", "2025-26", "2026-27"]
 
     def fetch_league_stats(self, season, force=False):
         """Fetch all player per-game stats for a season."""

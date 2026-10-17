@@ -21,7 +21,7 @@ ALL_TEAMS = [
 def load_player_cache():
     """Load all player stats from cache."""
     all_players = []
-    for season in ["2024-25", "2025-26"]:
+    for season in ["2025-26", "2026-27"]:
         cache_file = Path(f"cache/player_stats_{season}.json")
         if cache_file.exists():
             with open(cache_file) as f:
