@@ -76,10 +76,11 @@ HELP = """
       --force         Re-fetch player data from API
 
   MAINTENANCE
-    roster            Sync all 30 rosters from NBA API
+    roster            Sync all 30 rosters (ESPN, falls back to stats.nba.com)
       --team LAL      Sync one team only
       --check         Check if roster cache is stale
       --trades        Show detected trades only
+      --source nba    Force a source: espn | nba
     injuries          Update injuries.json from ESPN
 
   ANALYSIS
