@@ -4,11 +4,18 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import json
 import re
+import ssl
 import time
 import argparse
 import urllib.request
 from pathlib import Path
 from datetime import datetime
+
+try:
+    import certifi
+    _SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    _SSL_CONTEXT = ssl.create_default_context()
 
 INJURY_FILE = Path("injuries.json")
 
@@ -122,7 +129,7 @@ def _http_get(url, accept=None):
     last_err = None
     for attempt in range(3):
         try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with urllib.request.urlopen(req, timeout=30, context=_SSL_CONTEXT) as resp:
                 return resp.read()
         except Exception as e:
             last_err = e
