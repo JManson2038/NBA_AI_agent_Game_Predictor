@@ -1,34 +1,155 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-10-17 00:00",
-  "ATL": {},
-  "BOS": {},
-  "BKN": {},
-  "CHA": {},
-  "CHI": {},
+  "_last_updated": "2026-10-28 08:57",
+  "ATL": {
+    "Aaron Wiggins": "questionable",
+    "Mouhamed Gueye": "out",
+    "Henri Veesaar": "out"
+  },
+  "BOS": {
+    "Devin Carter": "out"
+  },
+  "BKN": {
+    "Egor Demin": "questionable",
+    "Tyler Bilodeau": "out"
+  },
+  "CHA": {
+    "Coby White": "out",
+    "Kon Knueppel": "out",
+    "Grant Williams": "out",
+    "Kylan Boswell": "out"
+  },
+  "CHI": {
+    "Patrick Williams": "questionable",
+    "Tobe Awaka": "questionable",
+    "Nic Claxton": "out"
+  },
   "CLE": {},
-  "DAL": {},
-  "DEN": {},
-  "DET": {},
-  "GSW": {},
-  "HOU": {},
-  "IND": {},
-  "LAC": {},
-  "LAL": {},
+  "DAL": {
+    "Santi Aldama": "out",
+    "Tarik Biberovic": "out",
+    "Sergio de Larrea": "out",
+    "Caleb Martin": "out",
+    "Naji Marshall": "questionable",
+    "Kyrie Irving": "questionable",
+    "Dereck Lively II": "out"
+  },
+  "DEN": {
+    "Spencer Jones": "out",
+    "Cameron Johnson": "questionable",
+    "Alpha Diallo": "out",
+    "Julian Strawther": "out"
+  },
+  "DET": {
+    "Isaiah Joe": "questionable",
+    "Jalen Duren": "out"
+  },
+  "GSW": {
+    "Yaxel Lendeborg": "questionable",
+    "Kristaps Porzingis": "out",
+    "Moses Moody": "out",
+    "Jimmy Butler III": "out"
+  },
+  "HOU": {
+    "Marcus Smart": "questionable",
+    "Alperen Sengun": "out",
+    "Steven Adams": "out"
+  },
+  "IND": {
+    "Andrew Nembhard": "questionable",
+    "Tyrese Haliburton": "questionable",
+    "Obi Toppin": "questionable",
+    "Aaron Nesmith": "questionable",
+    "T.J. McConnell": "out",
+    "Ivica Zubac": "out",
+    "Ben Sheppard": "out",
+    "Johnny Furphy": "out"
+  },
+  "LAC": {
+    "Rui Hachimura": "out",
+    "Bradley Beal": "out",
+    "Max Strus": "out",
+    "Yanic Konan Niederhauser": "out",
+    "Brandon Ingram": "out",
+    "Jordan Miller": "out"
+  },
+  "LAL": {
+    "Cameron Carr": "out",
+    "Adou Thiero": "out"
+  },
   "MEM": {},
-  "MIA": {},
+  "MIA": {
+    "Pelle Larsson": "questionable",
+    "Simone Fontecchio": "questionable"
+  },
   "MIL": {},
-  "MIN": {},
-  "NOP": {},
-  "NYK": {},
-  "OKC": {},
-  "ORL": {},
-  "PHI": {},
-  "PHX": {},
-  "POR": {},
-  "SAC": {},
-  "SAS": {},
-  "TOR": {},
-  "UTA": {},
-  "WAS": {}
+  "MIN": {
+    "Anthony Edwards": "out",
+    "Donte DiVincenzo": "out"
+  },
+  "NOP": {
+    "Jordan Poole": "questionable",
+    "Yves Missi": "out"
+  },
+  "NYK": {
+    "Jose Alvarado": "questionable"
+  },
+  "OKC": {
+    "Thomas Sorber": "out",
+    "Chet Holmgren": "out",
+    "Nikola Topic": "out",
+    "Ajay Mitchell": "questionable",
+    "Alex Caruso": "out",
+    "Jalen Williams": "out",
+    "Cason Wallace": "out",
+    "Otega Oweh": "out"
+  },
+  "ORL": {
+    "Jonathan Isaac": "out",
+    "Jalen Suggs": "out",
+    "Paolo Banchero": "out",
+    "Noah Penda": "out",
+    "Izaiyah Nelson": "out"
+  },
+  "PHI": {
+    "Tacko Fall": "out",
+    "Jabari Walker": "out",
+    "Dominick Barlow": "out",
+    "Ariel Hukporti": "out"
+  },
+  "PHX": {
+    "Oso Ighodaro": "questionable",
+    "Mark Williams": "out"
+  },
+  "POR": {
+    "Chris Youngblood": "out",
+    "Shaedon Sharpe": "out"
+  },
+  "SAC": {
+    "Dylan Cardwell": "out",
+    "Maxime Raynaud": "out",
+    "Keegan Murray": "out",
+    "Ben Simmons": "out"
+  },
+  "SAS": {
+    "Tobias Harris": "out",
+    "Jayden Quaintance": "out"
+  },
+  "TOR": {
+    "Nate Bittle": "out",
+    "Kawhi Leonard": "out"
+  },
+  "UTA": {
+    "Jaxson Hayes": "questionable",
+    "Lauri Markkanen": "questionable",
+    "Jaren Jackson Jr.": "out",
+    "Trey Alexander": "out",
+    "Jusuf Nurkic": "out"
+  },
+  "WAS": {
+    "Justin Champagnie": "out",
+    "AJ Dybantsa": "out",
+    "Tristan Vukcevic": "out",
+    "Jamir Watkins": "out"
+  }
 }
