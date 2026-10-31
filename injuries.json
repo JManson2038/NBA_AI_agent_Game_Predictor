@@ -1,6 +1,6 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-10-29 18:37",
+  "_last_updated": "2026-10-30 11:34",
   "ATL": {
     "Mouhamed Gueye": "out",
     "Henri Veesaar": "out"
@@ -9,12 +9,13 @@
     "Devin Carter": "out"
   },
   "BKN": {
+    "Noah Clowney": "questionable",
     "Egor Demin": "out",
     "Tyler Bilodeau": "out"
   },
   "CHA": {
-    "Dennis Schroder": "questionable",
     "Kon Knueppel": "out",
+    "Dennis Schroder": "questionable",
     "Coby White": "out",
     "Grant Williams": "out",
     "Kylan Boswell": "out"
@@ -26,8 +27,7 @@
     "Nic Claxton": "out"
   },
   "CLE": {
-    "Meleek Thomas": "questionable",
-    "Jaylon Tyson": "questionable"
+    "Meleek Thomas": "questionable"
   },
   "DAL": {
     "Tarik Biberovic": "out",
@@ -37,9 +37,9 @@
     "Dereck Lively II": "out"
   },
   "DEN": {
+    "Alpha Diallo": "out",
     "Cameron Johnson": "out",
     "Spencer Jones": "out",
-    "Alpha Diallo": "out",
     "Julian Strawther": "out"
   },
   "DET": {
@@ -76,12 +76,13 @@
     "Jordan Miller": "out"
   },
   "LAL": {
-    "Ziaire Williams": "questionable",
-    "Luka Doncic": "questionable",
     "Cameron Carr": "out",
-    "Adou Thiero": "out"
+    "Adou Thiero": "out",
+    "Ziaire Williams": "questionable"
   },
-  "MEM": {},
+  "MEM": {
+    "Quinten Post": "questionable"
+  },
   "MIA": {
     "Simone Fontecchio": "questionable"
   },
@@ -91,8 +92,8 @@
     "Donte DiVincenzo": "out"
   },
   "NOP": {
-    "Dejounte Murray": "out",
-    "Jordan Poole": "out",
+    "Jordan Poole": "questionable",
+    "Dejounte Murray": "questionable",
     "Yves Missi": "out"
   },
   "NYK": {
@@ -126,6 +127,7 @@
   },
   "POR": {
     "Robert Williams III": "questionable",
+    "Ja Morant": "questionable",
     "Chris Youngblood": "out",
     "Shaedon Sharpe": "out"
   },
