@@ -1,44 +1,48 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-11-04 09:54",
+  "_last_updated": "2026-11-05 09:04",
   "ATL": {
+    "Asa Newell": "questionable",
+    "Jalen Johnson": "out",
     "Jock Landale": "out",
-    "Jalen Johnson": "questionable",
     "Mouhamed Gueye": "out",
     "Henri Veesaar": "out"
   },
   "BOS": {
     "Payton Pritchard": "questionable",
-    "Jayson Tatum": "questionable",
-    "Devin Carter": "out"
+    "Devin Carter": "out",
+    "Jayson Tatum": "out"
   },
   "BKN": {
+    "Noah Clowney": "questionable",
+    "Day'Ron Sharpe": "questionable",
     "Egor Demin": "out",
     "Tyler Bilodeau": "out"
   },
   "CHA": {
     "Kon Knueppel": "out",
-    "Coby White": "questionable",
     "Grant Williams": "out"
   },
   "CHI": {
-    "Nic Claxton": "out",
-    "Jalen Smith": "questionable"
+    "Zach Collins": "questionable",
+    "Jalen Smith": "questionable",
+    "Nic Claxton": "out"
   },
   "CLE": {
+    "Jarrett Allen": "questionable",
+    "Tyrese Proctor": "questionable",
     "Jaylon Tyson": "out",
     "Peyton Watson": "out"
   },
   "DAL": {
-    "Max Christie": "out",
     "Santi Aldama": "out",
+    "Max Christie": "out",
     "Tarik Biberovic": "out",
     "Dereck Lively II": "out",
     "Sergio de Larrea": "out"
   },
   "DEN": {
-    "Cameron Johnson": "questionable",
-    "Alpha Diallo": "questionable",
+    "DeMar DeRozan": "out",
     "Spencer Jones": "out",
     "Julian Strawther": "out"
   },
@@ -47,21 +51,17 @@
     "Jalen Duren": "out"
   },
   "GSW": {
-    "Brandon Williams": "questionable",
-    "Gui Santos": "questionable",
-    "Al Horford": "questionable",
+    "Gui Santos": "out",
     "Kristaps Porzingis": "out",
     "Moses Moody": "out",
     "Jimmy Butler III": "out"
   },
   "HOU": {
-    "Clint Capela": "questionable",
-    "Steven Adams": "out"
+    "Steven Adams": "out",
+    "Clint Capela": "out"
   },
   "IND": {
-    "Ivica Zubac": "out",
-    "Kelly Oubre Jr.": "questionable",
-    "Obi Toppin": "out",
+    "Kelly Oubre Jr.": "out",
     "T.J. McConnell": "out",
     "Johnny Furphy": "out",
     "Ben Sheppard": "out",
@@ -77,37 +77,34 @@
     "Adou Thiero": "out"
   },
   "MEM": {
-    "Quinten Post": "questionable",
+    "Isaiah Stewart": "questionable",
     "Scotty Pippen Jr.": "out"
   },
-  "MIA": {
-    "Myron Gardner": "questionable",
-    "Giannis Antetokounmpo": "questionable"
+  "MIA": {},
+  "MIL": {
+    "Kam Jones": "out"
   },
-  "MIL": {},
   "MIN": {
-    "Terrence Shannon Jr.": "questionable",
+    "Terrence Shannon Jr.": "out",
     "Anthony Edwards": "out",
     "Donte DiVincenzo": "out"
   },
   "NOP": {
-    "Jordan Poole": "out",
-    "Trey Murphy III": "questionable",
+    "Trey Murphy III": "out",
     "Yves Missi": "out"
   },
   "NYK": {
-    "Josh Hart": "questionable"
+    "Josh Hart": "out"
   },
   "OKC": {
+    "Jaylin Williams": "out",
     "Nikola Topic": "out",
     "Thomas Sorber": "out",
-    "Jaylin Williams": "questionable",
     "Cason Wallace": "out",
     "Chet Holmgren": "out",
     "Jalen Williams": "out"
   },
   "ORL": {
-    "Anthony Black": "questionable",
     "Jonathan Isaac": "out",
     "Jalen Suggs": "out",
     "Paolo Banchero": "out",
@@ -115,20 +112,22 @@
     "Izaiyah Nelson": "out"
   },
   "PHI": {
+    "Adem Bona": "questionable",
     "Dominick Barlow": "out",
     "Ariel Hukporti": "out"
   },
   "PHX": {
-    "Jordan Goodwin": "questionable",
-    "Rasheer Fleming": "questionable",
+    "Jordan Goodwin": "out",
+    "Rasheer Fleming": "out",
     "Mark Williams": "out"
   },
   "POR": {
+    "Vit Krejci": "out",
     "Ja Morant": "out",
     "Shaedon Sharpe": "out"
   },
   "SAC": {
-    "Precious Achiuwa": "questionable",
+    "Daeqwon Plowden": "out",
     "Maxime Raynaud": "out",
     "Keegan Murray": "out",
     "Ben Simmons": "out"
@@ -139,18 +138,14 @@
   },
   "TOR": {
     "Kawhi Leonard": "out",
-    "Jakob Poeltl": "questionable",
     "Nate Bittle": "out"
   },
   "UTA": {
     "Jusuf Nurkic": "out",
-    "Mo Bamba": "questionable",
     "Jaren Jackson Jr.": "out",
     "Trey Alexander": "out"
   },
   "WAS": {
-    "Anthony Gill": "questionable",
-    "Alex Sarr": "questionable",
     "Reece Beekman": "out",
     "Tristan Vukcevic": "out",
     "Justin Champagnie": "out",
