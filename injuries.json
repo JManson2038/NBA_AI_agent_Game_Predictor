@@ -1,51 +1,46 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-11-06 12:06",
+  "_last_updated": "2026-11-07 10:04",
   "ATL": {
+    "Jalen Johnson": "out",
     "Keshon Gilbert": "out",
     "Asa Newell": "out",
     "Jock Landale": "out",
-    "Jalen Johnson": "questionable",
     "Mouhamed Gueye": "out",
     "Henri Veesaar": "out"
   },
   "BOS": {
-    "Payton Pritchard": "questionable",
     "Devin Carter": "out"
   },
   "BKN": {
-    "Noah Clowney": "questionable",
     "Day'Ron Sharpe": "questionable",
     "Egor Demin": "out",
     "Tyler Bilodeau": "out"
   },
   "CHA": {
-    "Dennis Schroder": "questionable",
-    "Moussa Diabate": "questionable",
+    "Brandon Miller": "questionable",
+    "Dennis Schroder": "out",
+    "Moussa Diabate": "out",
     "Kon Knueppel": "out",
     "Grant Williams": "out"
   },
   "CHI": {
-    "Nic Claxton": "out",
     "Zach Collins": "questionable",
+    "Nic Claxton": "out",
     "Jalen Smith": "questionable"
   },
   "CLE": {
-    "Tyrese Proctor": "questionable",
-    "Jaylon Tyson": "out",
-    "Peyton Watson": "questionable",
-    "Jarrett Allen": "questionable"
+    "Sam Merrill": "out",
+    "Jarrett Allen": "out",
+    "Jaylon Tyson": "out"
   },
   "DAL": {
     "Sergio de Larrea": "out",
-    "Santi Aldama": "out",
-    "Max Christie": "questionable",
     "Tarik Biberovic": "out",
     "Dereck Lively II": "out"
   },
   "DEN": {
     "DeMar DeRozan": "questionable",
-    "Spencer Jones": "out",
     "Julian Strawther": "out"
   },
   "DET": {
@@ -53,31 +48,31 @@
     "Jalen Duren": "out"
   },
   "GSW": {
-    "Gui Santos": "questionable",
+    "Draymond Green": "questionable",
+    "Gary Payton II": "questionable",
     "Kristaps Porzingis": "out",
+    "Gui Santos": "questionable",
     "Moses Moody": "out",
     "Jimmy Butler III": "out"
   },
   "HOU": {
-    "Clint Capela": "questionable",
+    "Clint Capela": "out",
     "Steven Adams": "out"
   },
   "IND": {
-    "Kelly Oubre Jr.": "questionable",
     "T.J. McConnell": "out",
+    "Kelly Oubre Jr.": "questionable",
     "Johnny Furphy": "out",
     "Ben Sheppard": "out",
     "Tyrese Haliburton": "out"
   },
   "LAC": {
-    "Yanic Konan Niederhauser": "out",
     "Brandon Ingram": "out",
+    "Yanic Konan Niederhauser": "out",
     "Bradley Beal": "out",
     "Jordan Miller": "out"
   },
-  "LAL": {
-    "Sandro Mamukelashvili": "questionable"
-  },
+  "LAL": {},
   "MEM": {
     "Isaiah Stewart": "out",
     "Scotty Pippen Jr.": "out"
@@ -87,16 +82,16 @@
     "Kam Jones": "questionable"
   },
   "MIN": {
-    "Terrence Shannon Jr.": "questionable",
+    "Joan Beringer": "out",
+    "Terrence Shannon Jr.": "out",
     "Anthony Edwards": "out",
     "Donte DiVincenzo": "out"
   },
   "NOP": {
-    "Yves Missi": "out",
-    "Trey Murphy III": "questionable"
+    "Yves Missi": "out"
   },
   "NYK": {
-    "Josh Hart": "questionable"
+    "Josh Hart": "out"
   },
   "OKC": {
     "Jaylin Williams": "out",
@@ -114,13 +109,13 @@
     "Izaiyah Nelson": "out"
   },
   "PHI": {
-    "Adem Bona": "questionable",
+    "Adem Bona": "out",
     "Dominick Barlow": "out",
     "Ariel Hukporti": "out"
   },
   "PHX": {
-    "Jordan Goodwin": "questionable",
     "Rasheer Fleming": "questionable",
+    "Jordan Goodwin": "questionable",
     "Mark Williams": "out"
   },
   "POR": {
@@ -129,6 +124,7 @@
     "Shaedon Sharpe": "out"
   },
   "SAC": {
+    "De'Andre Hunter": "out",
     "Maxime Raynaud": "out",
     "Keegan Murray": "out",
     "Ben Simmons": "out"
@@ -138,8 +134,8 @@
     "Jayden Quaintance": "out"
   },
   "TOR": {
-    "Kyle Anderson": "questionable",
-    "Scottie Barnes": "questionable",
+    "Scottie Barnes": "out",
+    "Immanuel Quickley": "out",
     "Kawhi Leonard": "out",
     "Nate Bittle": "out"
   },
@@ -149,7 +145,7 @@
     "Trey Alexander": "out"
   },
   "WAS": {
-    "Anthony Davis": "questionable",
+    "Anthony Davis": "out",
     "Reece Beekman": "out",
     "Tristan Vukcevic": "out",
     "Justin Champagnie": "out",
