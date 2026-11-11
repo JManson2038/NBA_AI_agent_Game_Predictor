@@ -1,6 +1,6 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-11-10 11:40",
+  "_last_updated": "2026-11-11 09:56",
   "ATL": {
     "Asa Newell": "out",
     "Keshon Gilbert": "out",
@@ -9,9 +9,9 @@
   },
   "BOS": {},
   "BKN": {
-    "Mikel Brown Jr.": "questionable",
-    "Grant Nelson": "questionable",
-    "Egor Demin": "out"
+    "Nolan Traore": "questionable",
+    "Egor Demin": "out",
+    "Grant Nelson": "questionable"
   },
   "CHA": {
     "Brandon Miller": "questionable",
@@ -22,10 +22,11 @@
   },
   "CHI": {
     "Norman Powell": "questionable",
+    "Tobe Awaka": "questionable",
     "Zach Collins": "questionable"
   },
   "CLE": {
-    "Sam Merrill": "questionable",
+    "Sam Merrill": "out",
     "Jaylon Tyson": "out"
   },
   "DAL": {
@@ -42,58 +43,54 @@
     "Jalen Duren": "out"
   },
   "GSW": {
-    "Gary Payton II": "questionable",
-    "Brandon Williams": "questionable",
+    "Gary Payton II": "out",
     "Will Richard": "out",
+    "Brandon Williams": "out",
     "Kristaps Porzingis": "out",
     "Moses Moody": "out",
     "Jimmy Butler III": "out"
   },
   "HOU": {
-    "Oscar Tshiebwe": "questionable",
     "Clint Capela": "out",
     "Steven Adams": "out"
   },
   "IND": {
+    "T.J. McConnell": "questionable",
     "Tyrese Haliburton": "out",
     "Johnny Furphy": "out",
     "Ben Sheppard": "out"
   },
   "LAC": {
+    "Cam Christie": "out",
     "Yanic Konan Niederhauser": "out",
     "Brandon Ingram": "out",
-    "Cam Christie": "questionable",
     "Bradley Beal": "out",
     "Jordan Miller": "out"
   },
   "LAL": {
-    "Austin Reaves": "questionable",
     "Quentin Grimes": "questionable"
   },
   "MEM": {
     "Isaiah Stewart": "questionable",
-    "Quinten Post": "questionable",
     "Scotty Pippen Jr.": "out",
+    "Quinten Post": "out",
     "Richie Saunders": "out"
   },
-  "MIA": {
-    "Giannis Antetokounmpo": "questionable"
-  },
+  "MIA": {},
   "MIL": {
-    "Tyler Herro": "questionable"
+    "Tyler Herro": "out"
   },
   "MIN": {
     "Anthony Edwards": "out",
     "Donte DiVincenzo": "out"
   },
   "NOP": {
-    "Trendon Watford": "questionable",
+    "Trendon Watford": "out",
     "Trey Murphy III": "questionable",
-    "Zion Williamson": "questionable",
     "Yves Missi": "out"
   },
   "NYK": {
-    "Josh Hart": "questionable"
+    "Josh Hart": "out"
   },
   "OKC": {
     "Jaylin Williams": "out",
@@ -103,6 +100,7 @@
     "Jalen Williams": "out"
   },
   "ORL": {
+    "Tristan da Silva": "out",
     "Jalen Suggs": "out",
     "Jonathan Isaac": "out",
     "Paolo Banchero": "out",
@@ -115,7 +113,6 @@
     "Ariel Hukporti": "out"
   },
   "PHX": {
-    "Jordan Goodwin": "out",
     "Mark Williams": "out"
   },
   "POR": {
@@ -124,9 +121,8 @@
     "Shaedon Sharpe": "out"
   },
   "SAC": {
+    "Precious Achiuwa": "out",
     "Maxime Raynaud": "out",
-    "Keegan Murray": "questionable",
-    "Domantas Sabonis": "questionable",
     "Ben Simmons": "out"
   },
   "SAS": {
@@ -135,20 +131,20 @@
     "Jayden Quaintance": "out"
   },
   "TOR": {
-    "Immanuel Quickley": "questionable",
+    "Trayce Jackson-Davis": "questionable",
     "Collin Murray-Boyles": "questionable",
-    "Scottie Barnes": "questionable",
-    "Nate Bittle": "out",
-    "Kawhi Leonard": "out"
+    "Immanuel Quickley": "questionable",
+    "Scottie Barnes": "out",
+    "Kawhi Leonard": "out",
+    "Nate Bittle": "out"
   },
   "UTA": {
-    "Keyonte George": "out",
     "Lauri Markkanen": "questionable",
+    "Keyonte George": "out",
     "Jusuf Nurkic": "out",
     "Jaren Jackson Jr.": "out"
   },
   "WAS": {
-    "Bilal Coulibaly": "questionable",
     "Tristan Vukcevic": "out",
     "Reece Beekman": "out",
     "Justin Champagnie": "out",
