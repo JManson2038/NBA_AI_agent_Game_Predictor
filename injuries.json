@@ -1,10 +1,11 @@
 {
   "_instructions": "Auto-updated from ESPN. Set status to: 'out', 'questionable', or 'available'.",
-  "_last_updated": "2026-11-12 10:55",
+  "_last_updated": "2026-11-13 11:20",
   "ATL": {
-    "Asa Newell": "out",
-    "Keshon Gilbert": "out",
     "Mouhamed Gueye": "out",
+    "Keshon Gilbert": "out",
+    "Asa Newell": "out",
+    "Kingston Flemings": "questionable",
     "Henri Veesaar": "out"
   },
   "BOS": {
@@ -15,26 +16,24 @@
     "Mikel Brown Jr.": "questionable"
   },
   "CHA": {
-    "Grant Williams": "out",
-    "Moussa Diabate": "questionable",
-    "Brandon Miller": "out",
+    "Brandon Miller": "questionable",
     "Kon Knueppel": "out",
     "Dennis Schroder": "out"
   },
   "CHI": {
+    "Tobe Awaka": "out",
     "Dailyn Swain": "questionable",
     "Norman Powell": "questionable",
-    "Tobe Awaka": "questionable",
-    "Caleb Wilson": "questionable"
+    "Caleb Wilson": "out"
   },
   "CLE": {
+    "Evan Mobley": "out",
     "Sam Merrill": "out"
   },
   "DAL": {
     "Dereck Lively II": "out",
     "Tarik Biberovic": "out",
-    "Sergio de Larrea": "out",
-    "Morez Johnson Jr.": "questionable"
+    "Sergio de Larrea": "out"
   },
   "DEN": {
     "Julian Strawther": "out"
@@ -45,8 +44,8 @@
     "Jalen Duren": "out"
   },
   "GSW": {
-    "Gary Payton II": "questionable",
-    "Stephen Curry": "questionable",
+    "Charles Bassey": "questionable",
+    "Stephen Curry": "out",
     "Brandon Williams": "out",
     "Kristaps Porzingis": "out",
     "Moses Moody": "out",
@@ -57,15 +56,15 @@
     "Steven Adams": "out"
   },
   "IND": {
+    "T.J. McConnell": "questionable",
     "Aaron Nesmith": "questionable",
     "Tyrese Haliburton": "out",
     "Johnny Furphy": "out",
     "Ben Sheppard": "out"
   },
   "LAC": {
-    "Cam Christie": "questionable",
-    "Yanic Konan Niederhauser": "out",
     "Brandon Ingram": "out",
+    "Yanic Konan Niederhauser": "out",
     "Bradley Beal": "out",
     "Jordan Miller": "out"
   },
@@ -76,30 +75,33 @@
     "Luka Doncic": "questionable"
   },
   "MEM": {
-    "Quinten Post": "questionable",
+    "Quinten Post": "out",
+    "Zach Edey": "out",
     "Scotty Pippen Jr.": "out",
     "Richie Saunders": "out"
   },
-  "MIA": {},
-  "MIL": {
-    "Myles Turner": "questionable",
-    "Ryan Rollins": "questionable"
+  "MIA": {
+    "Klay Thompson": "questionable",
+    "Giannis Antetokounmpo": "questionable",
+    "Pelle Larsson": "questionable"
   },
+  "MIL": {},
   "MIN": {
     "Anthony Edwards": "out",
     "Donte DiVincenzo": "out"
   },
   "NOP": {
+    "Bryce McGowens": "questionable",
+    "Trendon Watford": "out",
     "Bennedict Mathurin": "questionable",
-    "Trendon Watford": "questionable",
-    "Trey Murphy III": "questionable",
-    "Yves Missi": "out"
+    "Yves Missi": "out",
+    "Trey Murphy III": "questionable"
   },
   "NYK": {},
   "OKC": {
+    "Thomas Sorber": "out",
     "Ajay Mitchell": "questionable",
     "Jaylin Williams": "out",
-    "Thomas Sorber": "out",
     "Cason Wallace": "out",
     "Chet Holmgren": "out",
     "Jalen Williams": "out"
@@ -114,17 +116,16 @@
     "Izaiyah Nelson": "out"
   },
   "PHI": {
-    "Adem Bona": "out",
-    "Joel Embiid": "questionable",
     "LeBron James": "questionable",
     "Dominick Barlow": "out",
+    "Adem Bona": "out",
     "Ariel Hukporti": "out"
   },
   "PHX": {
     "Mark Williams": "out"
   },
   "POR": {
-    "Chris Youngblood": "questionable",
+    "Chris Youngblood": "out",
     "Vit Krejci": "out",
     "Ja Morant": "out",
     "Shaedon Sharpe": "out"
@@ -136,13 +137,15 @@
   },
   "SAS": {
     "Devin Vassell": "questionable",
+    "De'Aaron Fox": "questionable",
     "Tobias Harris": "out",
     "Jayden Quaintance": "out"
   },
   "TOR": {
+    "Kevin McCullar Jr.": "questionable",
     "Trayce Jackson-Davis": "questionable",
-    "Kawhi Leonard": "out",
     "Scottie Barnes": "out",
+    "Kawhi Leonard": "out",
     "Nate Bittle": "out"
   },
   "UTA": {
@@ -152,6 +155,7 @@
     "Jaren Jackson Jr.": "out"
   },
   "WAS": {
+    "Bub Carrington": "questionable",
     "Tristan Vukcevic": "out",
     "Reece Beekman": "out",
     "Justin Champagnie": "out",
